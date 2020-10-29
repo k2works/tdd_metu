@@ -17,4 +17,8 @@ describe("FizzBuzzTest", () => {
   it("3を渡したら文字列Fizzを返す", () => {
     expect(fizzBuzz.generate(3)).toEqual("Fizz");
   });
+
+  it("5を渡したら文字列Buzzを返す", () => {
+    expect(fizzBuzz.generate(5)).toEqual("Buzz");
+  });
 });
