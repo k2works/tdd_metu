@@ -1,4 +1,4 @@
-# テンプレート
+# テスト駆動開発から始める ○ 滅の刃
 
 ## 概要
 
@@ -19,7 +19,19 @@
 
 ## 詳細
 
+### Quick Start
+
+```bash
+npm install
+npm start
+```
+
 ### 構築
+
+```bash
+npm init -y
+npm install --save-dev browser-sync jest @babel/core @babel/cli @babel/preset-env @babel/register
+```
 
 **[⬆ back to top](#構成)**
 
