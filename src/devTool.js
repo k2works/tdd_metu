@@ -29,6 +29,11 @@ const contents = `
 `;
 
 const uml = `
+class FizzBuzz {
+  MAX_NUMBER = 100
+  static generate(number)
+  static generateList()
+}
 `;
 
 const erd = `
