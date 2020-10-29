@@ -34,7 +34,7 @@ describe("FizzBuzz", () => {
   describe("1から100までの数の配列を返す", () => {
     let result;
     beforeEach(() => {
-      result = fizzBuzz.print1To100();
+      result = fizzBuzz.generateList();
     });
     it("配列の初めは文字列の1を返す", () => {
       expect(result[0]).toEqual("1");

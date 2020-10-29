@@ -20,7 +20,7 @@ export class FizzBuzz {
     return result;
   }
 
-  static print1To100() {
+  static generateList() {
     let result = [];
 
     for (let i = 1; i <= 100; i++) {
