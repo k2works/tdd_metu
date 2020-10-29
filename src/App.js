@@ -8,9 +8,13 @@ export class App {
 
 export class FizzBuzz {
   static generate(number) {
-    if (number % 15 === 0) return "FizzBuzz";
-    if (number % 3 === 0) return "Fizz";
-    if (number % 5 === 0) return "Buzz";
+    const isFizzBuzz = number % 15 === 0;
+    const isFizz = number % 3 === 0;
+    const isBuzz = number % 5 === 0;
+
+    if (isFizzBuzz) return "FizzBuzz";
+    if (isFizz) return "Fizz";
+    if (isBuzz) return "Buzz";
 
     return number.toString();
   }
