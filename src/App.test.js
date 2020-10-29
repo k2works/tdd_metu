@@ -30,4 +30,11 @@ describe("FizzBuzz", () => {
       expect(fizzBuzz.generate(2)).toEqual("2");
     });
   });
+
+  describe("1から100までの数の配列を返す", () => {
+    it("配列の初めは文字列の1を返す", () => {
+      const result = fizzBuzz.print1To100();
+      expect(result[0]).toEqual("1");
+    });
+  });
 });

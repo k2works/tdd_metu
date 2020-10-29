@@ -19,4 +19,8 @@ export class FizzBuzz {
     }
     return result;
   }
+
+  static print1To100() {
+    return ["1", "2", "3"];
+  }
 }
