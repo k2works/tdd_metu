@@ -37,9 +37,24 @@ describe("FizzBuzz", () => {
       expect(result[0]).toEqual("1");
     });
 
-    it("配列の最後は文字列の100を返す", () => {
+    it("配列の最後は文字列のBuzzを返す", () => {
       const result = fizzBuzz.print1To100();
-      expect(result[result.length - 1]).toEqual("100");
+      expect(result[result.length - 1]).toEqual("Buzz");
+    });
+
+    it("配列の２番目は文字列のFizzを返す", () => {
+      const result = fizzBuzz.print1To100();
+      expect(result[2]).toEqual("Fizz");
+    });
+
+    it("配列の４番目は文字列のBuzzを返す", () => {
+      const result = fizzBuzz.print1To100();
+      expect(result[4]).toEqual("Buzz");
+    });
+
+    it("配列の１４番目は文字列のFizzBuzzを返す", () => {
+      const result = fizzBuzz.print1To100();
+      expect(result[14]).toEqual("FizzBuzz");
     });
   });
 });

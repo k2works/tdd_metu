@@ -24,7 +24,7 @@ export class FizzBuzz {
     let result = [];
 
     for (let i = 1; i <= 100; i++) {
-      result.push(i.toString());
+      result.push(FizzBuzz.generate(i));
     }
 
     return result;
