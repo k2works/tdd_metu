@@ -7,6 +7,10 @@ export class App {
 }
 
 export class FizzBuzz {
+  static get MAX_NUMBER() {
+    return 100;
+  }
+
   static generate(number) {
     const isFizzBuzz = number % 15 === 0;
     const isFizz = number % 3 === 0;
@@ -20,6 +24,8 @@ export class FizzBuzz {
   }
 
   static generateList() {
-    return [...Array(100).keys()].map((i) => FizzBuzz.generate(i + 1));
+    return [...Array(this.MAX_NUMBER).keys()].map((i) =>
+      FizzBuzz.generate(i + 1)
+    );
   }
 }
