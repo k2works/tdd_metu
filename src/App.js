@@ -1,10 +1,13 @@
 export class App {
   constructor() {
-    console.log(greeting());
-    document.getElementById("app").innerHTML = greeting();
+    const result = FizzBuzz.generate(1);
+    console.log(result);
+    document.getElementById("app").innerHTML = result;
   }
 }
 
-export const greeting = () => {
-  return "hello world";
-};
+export class FizzBuzz {
+  static generate() {
+    return "1";
+  }
+}
