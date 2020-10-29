@@ -1,10 +1,10 @@
-console.log("App.js: loaded");
 export class App {
   constructor() {
-    console.log("App initialized");
+    console.log(greeting());
+    document.getElementById("app").innerHTML = greeting();
   }
 }
 
-export function sum(a, b) {
-  return a + b;
-}
+export const greeting = () => {
+  return "hello world";
+};
