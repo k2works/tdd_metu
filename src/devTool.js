@@ -8,65 +8,19 @@ const contents = `
     3 と 5 両方の倍数の場合には｢FizzBuzz｣とプリントすること。
 
 ## TODOリスト
+- [ ] 数を文字列にして返す
+- [ ] 3 の倍数のときは数の代わりに｢Fizz｣と返す
+- [ ] 5 の倍数のときは｢Buzz｣と返す
+- [ ] 3 と 5 両方の倍数の場合には｢FizzBuzz｣と返す
+- [ ] 1 から 100 までの数
+- [ ] プリントする
+
 `;
 
 const uml = `
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
-
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-  Object[] elementData
-  size()
-}
-
-enum TimeUnit {
-  DAYS
-  HOURS
-  MINUTES
-}
-
-annotation SuppressWarnings
 `;
 
 const erd = `
-' hide the spot
-hide circle
-
-' avoid problems with angled crows feet
-skinparam linetype ortho
-
-entity "Entity01" as e01 {
-  *e1_id : number <<generated>>
-  --
-  *name : text
-  description : text
-}
-
-entity "Entity02" as e02 {
-  *e2_id : number <<generated>>
-  --
-  *e1_id : number <<FK>>
-  other_details : text
-}
-
-entity "Entity03" as e03 {
-  *e3_id : number <<generated>>
-  --
-  e1_id : number <<FK>>
-  other_details : text
-}
-
-e01 ||..o{ e02
-e01 |o..o{ e03
 `;
 
 export const setUp = () => {
