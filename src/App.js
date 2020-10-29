@@ -7,7 +7,7 @@ export class App {
 }
 
 export class FizzBuzz {
-  static generate() {
-    return "1";
+  static generate(n) {
+    return n.toString();
   }
 }
