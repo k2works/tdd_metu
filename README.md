@@ -31,8 +31,9 @@ npm start
 ```bash
 npm init -y
 npm install --save-dev browser-sync jest @babel/core @babel/cli @babel/preset-env @babel/register
-npm install marked --save-dev
+npm install --save-dev npm-run-all watch foreman cpx rimraf marked
 npm install webpack webpack-cli html-webpack-plugin --save-dev
+touch Procfile
 ```
 
 **[⬆ back to top](#構成)**
