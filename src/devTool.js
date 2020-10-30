@@ -51,7 +51,7 @@ const init = () => {
     if (dev !== null) {
       dev.innerHTML = `
             <div class="container">
-              <h1>開発中</h1>
+              <h1>開発</h1>
               <div class="py-3">
                 <div id="app"></div>
                 <!--<div id="mocha"></div>-->
