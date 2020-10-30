@@ -1,3 +1,5 @@
+![](https://github.com/k2works/tdd_metu/workflows/Node.js%20CI/badge.svg)
+
 # テスト駆動開発から始める ○ 滅の刃
 
 ## 概要
@@ -51,9 +53,17 @@ npm run deploy
 
 ### 運用
 
+```bash
+npm run deploy
+```
+
 **[⬆ back to top](#構成)**
 
 ### 開発
+
+```bash
+npm start
+```
 
 **[⬆ back to top](#構成)**
 
@@ -61,3 +71,4 @@ npm run deploy
 
 - [Vercel](https://vercel.com/)
 - [webpack](https://webpack.js.org/)
+- [GitHub Actions でステータスバッジを表示する](https://qiita.com/SnowCait/items/487d70b342ffbe2f33d8)
