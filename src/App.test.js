@@ -16,6 +16,12 @@ describe("FizzBuzz", () => {
       expect(fizzBuzz.generate(5)).toEqual("Buzz");
     });
   });
+
+  describe("三と五の倍数の場合", () => {
+    it("15を渡したら文字列FizzBuzzを返す", () => {
+      expect(fizzBuzz.generate(15)).toEqual("FizzBuzz");
+    });
+  });
   describe("その他の場合", () => {
     it("1を渡したら文字列1を返す", () => {
       expect(fizzBuzz.generate(1)).toEqual("1");

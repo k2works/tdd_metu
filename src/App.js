@@ -1,6 +1,6 @@
 export class App {
   constructor() {
-    const result = FizzBuzz.generate(5);
+    const result = FizzBuzz.generate(15);
     console.log(result);
     document.getElementById("app").innerHTML = result;
   }
@@ -11,6 +11,9 @@ export class FizzBuzz {
     let result = number.toString();
     if (number % 3 === 0) {
       result = "Fizz";
+      if (number % 3 === 0 && number % 5 === 0) {
+        result = "FizzBuzz";
+      }
     } else if (number % 5 === 0) {
       result = "Buzz";
     }
