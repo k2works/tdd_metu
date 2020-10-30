@@ -31,6 +31,8 @@ npm start
 ```bash
 npm init -y
 npm install --save-dev browser-sync jest @babel/core @babel/cli @babel/preset-env @babel/register
+npm install marked --save-dev
+npm install webpack webpack-cli html-webpack-plugin --save-dev
 ```
 
 **[⬆ back to top](#構成)**
