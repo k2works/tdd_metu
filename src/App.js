@@ -41,6 +41,6 @@ export class App {
         `;
     };
 
-    document.getElementById("app").innerHTML = table(header);
+    document.getElementById("app").innerHTML = table();
   }
 }
