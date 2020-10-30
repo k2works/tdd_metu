@@ -1,10 +1,46 @@
-console.log("App.js: loaded");
+import { FizzBuzz } from "./fizzBuzz.js";
+
 export class App {
   constructor() {
-    console.log("App initialized");
-  }
-}
+    const result = FizzBuzz.generateList();
+    console.log(result);
 
-export function sum(a, b) {
-  return a + b;
+    const header = [...Array(10).keys()]
+      .map((i) => `<th>${i + 1}</th>`)
+      .join("");
+
+    const td = [...Array(10).keys()]
+      .map((i) => (i == 0 ? 0 : i * 10))
+      .map((j) =>
+        [...Array(10).keys()]
+          .map((k) => `<td>${FizzBuzz.generate(k + 1 + j)}</td>`)
+          .join("")
+      );
+
+    const table = () => {
+      return `
+        <table>
+          <thead>
+          <tr>
+            ${header}
+          </tr>
+          </thead>
+          <tbody>
+            <tr>${td[0]}</t>
+            <tr>${td[1]}</t>
+            <tr>${td[2]}</t>
+            <tr>${td[3]}</t>
+            <tr>${td[4]}</t>
+            <tr>${td[5]}</t>
+            <tr>${td[6]}</t>
+            <tr>${td[7]}</t>
+            <tr>${td[8]}</t>
+            <tr>${td[9]}</t>
+          </tbody>
+        </table>
+        `;
+    };
+
+    document.getElementById("app").innerHTML = table();
+  }
 }
