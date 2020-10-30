@@ -1,6 +1,6 @@
 export class App {
   constructor() {
-    const result = FizzBuzz.generate(15);
+    const result = FizzBuzz.print1To100();
     console.log(result);
     document.getElementById("app").innerHTML = result;
   }
@@ -17,5 +17,9 @@ export class FizzBuzz {
       result = "Buzz";
     }
     return result;
+  }
+
+  static print1To100() {
+    return ["1", "2", "3"];
   }
 }
