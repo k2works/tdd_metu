@@ -1,14 +1,13 @@
-console.log("App.js: loaded");
 export class App {
   constructor() {
-    const result = FizzBuzz.greeting();
+    const result = FizzBuzz.generate();
     console.log(result);
     document.getElementById("app").innerHTML = result;
   }
 }
 
 export class FizzBuzz {
-  static greeting() {
-    return "hello world";
+  static generate() {
+    return "1";
   }
 }

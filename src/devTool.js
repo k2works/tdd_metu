@@ -1,7 +1,7 @@
 import marked from "marked";
 
 const contents = `
-## 機能名
+## FizzBuzz
 
 ## 仕様
 
@@ -11,6 +11,7 @@ const contents = `
 
 ## TODOリスト
 - 数を文字列にして返す
+-- ~~1を渡したら文字列1を返す~~
 - 3 の倍数のときは数の代わりに｢Fizz｣と返す
 - 5 の倍数のときは｢Buzz｣と返す
 - 3 と 5 両方の倍数の場合には｢FizzBuzz｣と返す
