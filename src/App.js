@@ -10,10 +10,10 @@ export class App {
       .join("");
 
     const td = [...Array(10).keys()]
-      .map((i) => (i + 1) * 10)
+      .map((i) => (i == 0 ? 0 : i * 10))
       .map((j) =>
         [...Array(10).keys()]
-          .map((k) => `<td>${FizzBuzz.generate(k + j)}</td>`)
+          .map((k) => `<td>${FizzBuzz.generate(k + 1 + j)}</td>`)
           .join("")
       );
 
