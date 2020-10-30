@@ -1,3 +1,5 @@
+![](https://github.com/k2works/tdd_metu/workflows/Node.js%20CI/badge.svg)
+
 # プログラミング演習 2020
 
 ## 概要
@@ -49,10 +51,22 @@ npm run deploy
 
 ### 運用
 
+```bash
+npm run deploy
+```
+
 **[⬆ back to top](#構成)**
 
 ### 開発
 
+```bash
+npm start
+```
+
 **[⬆ back to top](#構成)**
 
 ## 参照
+
+- [Vercel](https://vercel.com/)
+- [webpack](https://webpack.js.org/)
+- [GitHub Actions でステータスバッジを表示する](https://qiita.com/SnowCait/items/487d70b342ffbe2f33d8)
