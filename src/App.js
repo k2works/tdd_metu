@@ -1,7 +1,9 @@
 console.log("App.js: loaded");
 export class App {
   constructor() {
-    console.log("App initialized");
+    const result = FizzBuzz.greeting();
+    console.log(result);
+    document.getElementById("app").innerHTML = result;
   }
 }
 
