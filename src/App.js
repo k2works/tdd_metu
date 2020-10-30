@@ -5,6 +5,8 @@ export class App {
   }
 }
 
-export function sum(a, b) {
-  return a + b;
+export class FizzBuzz {
+  static greeting() {
+    return "hello world";
+  }
 }

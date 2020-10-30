@@ -1,5 +1,7 @@
-import { sum } from "./App.js";
+import { FizzBuzz } from "./App.js";
 
-test("adds 1 + 2 to equal 3", () => {
-  expect(sum(1, 2)).toBe(3);
+describe("FizzBuzz", () => {
+  it("あいさつする", () => {
+    expect(FizzBuzz.greeting()).toEqual("hello world");
+  });
 });
