@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "nf start -j Procfile",
-    "app": "browser-sync start -s ./ --watch --port 8080 --ui-port 8081",
+    "app": "browser-sync start --config bs-config.js",
     "test": "jest --coverage",
     "watch": "webpack --watch --config webpack.config.js",
     "build": "webpack --config webpack.config.js",
