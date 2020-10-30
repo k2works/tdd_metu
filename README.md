@@ -31,11 +31,19 @@ npm start
 ```bash
 npm init -y
 npm install --save-dev browser-sync jest @babel/core @babel/cli @babel/preset-env @babel/register
+npm install marked --save-dev
+npm install webpack webpack-cli --save-dev
+npm install --save-dev html-webpack-plugin
 ```
 
 **[⬆ back to top](#構成)**
 
 ### 配置
+
+```bash
+npm i -g vercel
+npm run deploy
+```
 
 **[⬆ back to top](#構成)**
 
@@ -48,3 +56,6 @@ npm install --save-dev browser-sync jest @babel/core @babel/cli @babel/preset-en
 **[⬆ back to top](#構成)**
 
 ## 参照
+
+- [Vercel](https://vercel.com/)
+- [webpack](https://webpack.js.org/)
