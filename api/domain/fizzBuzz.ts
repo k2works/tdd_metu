@@ -1,5 +1,9 @@
 export class FizzBuzz {
     generate(n: number): string {
-        return n.toString();
+        let result: string = n.toString();
+        if (n % 3 === 0) {
+            result = "Fizz"
+        }
+        return result;
     }
 }

@@ -11,4 +11,7 @@ describe("FizzBuzz", () => {
     it("2を渡したら文字列2を返す", () => {
         expect(fizzBuzz.generate(2)).toEqual("2")
     })
+    it("3を渡したら文字列Fizzを返す", () => {
+        expect(fizzBuzz.generate(3)).toEqual("Fizz")
+    })
 })
