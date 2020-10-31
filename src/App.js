@@ -1,6 +1,6 @@
 export class App {
   constructor() {
-    const result = FizzBuzz.print1To100();
+    const result = FizzBuzz.generateList();
     console.log(result);
     document.getElementById("app").innerHTML = result;
   }
@@ -19,7 +19,7 @@ export class FizzBuzz {
     return result;
   }
 
-  static print1To100() {
+  static generateList() {
     let result = [];
     for (let i = 1; i <= 100; i++) {
       result.push(FizzBuzz.generate(i));
