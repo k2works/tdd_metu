@@ -1,4 +1,4 @@
-import { FizzBuzz } from "./App.js";
+import { FizzBuzz } from "./fizzBuzz.js";
 
 describe("FizzBuzz", () => {
   let fizzBuzz;
