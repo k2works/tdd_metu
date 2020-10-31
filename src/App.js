@@ -1,22 +1,21 @@
 import { FizzBuzz } from "./domain/fizzBuzz.js";
 export class App {
   constructor() {
-    const fetchApi = () => {
-      return FizzBuzz.generateList();
-    };
+    (() => {
+      const callBack = (list) => {
+        const table = (() => {
+          const header = [...Array(10).keys()]
+            .map((i) => `<td>${i + 1}</td>`)
+            .join("");
+          const body = [...Array(10).keys()]
+            .map((i) => (i == 0 ? 0 : i * 10))
+            .map((j) =>
+              [...Array(10).keys()]
+                .map((k) => `<td>${list[k + j]}</td>`)
+                .join("")
+            );
 
-    const table = (() => {
-      const list = fetchApi();
-      const header = [...Array(10).keys()]
-        .map((i) => `<td>${i + 1}</td>`)
-        .join("");
-      const body = [...Array(10).keys()]
-        .map((i) => (i == 0 ? 0 : i * 10))
-        .map((j) =>
-          [...Array(10).keys()].map((k) => `<td>${list[k + j]}</td>`).join("")
-        );
-
-      return `
+          return `
       <table>
         <thead bgcolor="darkgray">
           <tr>
@@ -37,9 +36,15 @@ export class App {
         </tbody>
       </table>
       `;
-    })();
+        })();
 
-    const contents = `<div>${table}</div>`;
-    document.getElementById("app").innerHTML = contents;
+        const contents = `<div>${table}</div>`;
+        document.getElementById("app").innerHTML = contents;
+      };
+
+      fetch("http://localhost:3000/api")
+        .then((response) => response.json())
+        .then((data) => callBack(data));
+    })();
   }
 }
