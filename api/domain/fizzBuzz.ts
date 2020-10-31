@@ -1,8 +1,12 @@
 export class FizzBuzz {
   generate(n: number): string {
-    if (n % 3 === 0 && n % 5 === 0) return "FizzBuzz";
-    if (n % 3 === 0) return "Fizz";
-    if (n % 5 === 0) return "Buzz";
+    const isFizzBuzz = n % 3 === 0 && n % 5 === 0;
+    const isFizz = n % 3 === 0;
+    const isBuzz = n % 5 === 0;
+
+    if (isFizzBuzz) return "FizzBuzz";
+    if (isFizz) return "Fizz";
+    if (isBuzz) return "Buzz";
 
     return n.toString();
   }
