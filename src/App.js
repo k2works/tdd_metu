@@ -34,7 +34,8 @@ export class App {
       `;
     })();
 
-    document.getElementById("app").innerHTML = table;
+    const contents = `<div>${table}</div>`;
+    document.getElementById("app").innerHTML = contents;
   }
 }
 
