@@ -1,4 +1,3 @@
-import { FizzBuzz } from "./domain/fizzBuzz.js";
 export class App {
   constructor(params) {
     const apiUrl = params.apiUrl;
