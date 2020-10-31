@@ -22,7 +22,7 @@ export class FizzBuzz {
   static print1To100() {
     let result = [];
     for (let i = 1; i <= 100; i++) {
-      result.push(i.toString());
+      result.push(FizzBuzz.generate(i));
     }
     return result;
   }
