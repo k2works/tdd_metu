@@ -1,5 +1,5 @@
 export class FizzBuzz {
-    generate(arg0: number): string {
-        return '1'
+    generate(n: number): string {
+        return n.toString();
     }
 }
