@@ -10,4 +10,8 @@ export class FizzBuzz {
     }
     return result;
   }
+
+  print1To100(): string[] {
+    return ["1", "2", "3"];
+  }
 }
