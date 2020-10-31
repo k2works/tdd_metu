@@ -31,8 +31,12 @@ describe("FizzBuzz", () => {
 
   describe("1から100までの数の配列を返す", () => {
     it("配列の初めは文字列の1を返す", () => {
-        const result = fizzBuzz.print1To100();
-        expect(result[0]).toEqual("1");
+      const result = fizzBuzz.print1To100();
+      expect(result[0]).toEqual("1");
+    });
+    it("配列の最後は文字列のBuzzを返す", () => {
+      const result = fizzBuzz.print1To100();
+      expect(result[result.length - 1]).toEqual("Buzz");
     });
   });
 });
