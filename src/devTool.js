@@ -31,6 +31,13 @@ const contents = `
 `;
 
 const uml = `
+class FizzBuzz {
+  MAX_NUMBER = 100
+  FIZZ = Fizz
+  BUZZ = Buzz
+  static generate(number)
+  static generateList()
+}
 `;
 
 const erd = `
