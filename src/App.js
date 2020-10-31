@@ -1,7 +1,6 @@
 export class App {
   constructor() {
-    const result = FizzBuzz.generateList();
-    console.log(result);
+    const result = [];
     document.getElementById("app").innerHTML = result;
   }
 }
