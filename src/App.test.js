@@ -45,5 +45,15 @@ describe("FizzBuzz", () => {
       const result = fizzBuzz.print1To100();
       expect(result[2]).toEqual("Fizz");
     });
+
+    it("配列の4番目は文字列のBuzzを返す", () => {
+      const result = fizzBuzz.print1To100();
+      expect(result[4]).toEqual("Buzz");
+    });
+
+    it("配列の14番目は文字列のFizzBuzzを返す", () => {
+      const result = fizzBuzz.print1To100();
+      expect(result[14]).toEqual("FizzBuzz");
+    });
   });
 });
