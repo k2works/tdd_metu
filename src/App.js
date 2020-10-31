@@ -8,11 +8,11 @@ export class App {
 
 export class FizzBuzz {
   static generate(number) {
-    let result = number.toString();
     if (number % 3 === 0 && number % 5 === 0) return "FizzBuzz";
     if (number % 3 === 0) return "Fizz";
     if (number % 5 === 0) return "Buzz";
-    return result;
+
+    return number.toString();
   }
 
   static generateList() {
