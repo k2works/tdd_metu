@@ -1,4 +1,4 @@
-import { FizzBuzz } from "./FizzBuzz/fizzBuzz.js";
+import { FizzBuzz } from "./domain/fizzBuzz.js";
 export class App {
   constructor() {
     const table = (() => {
