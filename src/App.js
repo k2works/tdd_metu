@@ -20,6 +20,10 @@ export class FizzBuzz {
   }
 
   static print1To100() {
-    return ["1", "2", "3"];
+    let result = [];
+    for (let i = 1; i <= 100; i++) {
+      result.push(i.toString());
+    }
+    return result;
   }
 }

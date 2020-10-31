@@ -35,5 +35,10 @@ describe("FizzBuzz", () => {
       const result = fizzBuzz.print1To100();
       expect(result[0]).toEqual("1");
     });
+
+    it("配列の最後は文字列の100を返す", () => {
+      const result = fizzBuzz.print1To100();
+      expect(result[result.length - 1]).toEqual("100");
+    });
   });
 });
