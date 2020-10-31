@@ -11,7 +11,7 @@ export class FizzBuzz {
     return result;
   }
 
-  print1To100(): string[] {
+  generateList(): string[] {
     let result: string[] = [];
     for (let i: number = 1; i <= 100; i++) {
       result.push(this.generate(i));
