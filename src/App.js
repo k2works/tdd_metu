@@ -1,6 +1,8 @@
 import { FizzBuzz } from "./domain/fizzBuzz.js";
 export class App {
   constructor() {
+    const apiUrl = "http://localhost:3000/api";
+
     (() => {
       const callBack = (list) => {
         const table = (() => {
@@ -42,9 +44,10 @@ export class App {
         document.getElementById("app").innerHTML = contents;
       };
 
-      fetch("http://localhost:3000/api")
+      fetch(apiUrl)
         .then((response) => response.json())
-        .then((data) => callBack(data));
+        .then((data) => callBack(data))
+        .catch((error) => console.error(error));
     })();
   }
 }
