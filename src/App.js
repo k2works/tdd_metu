@@ -1,7 +1,7 @@
 import { FizzBuzz } from "./domain/fizzBuzz.js";
 export class App {
-  constructor() {
-    const apiUrl = "http://localhost:3000/api";
+  constructor(params) {
+    const apiUrl = params.apiUrl;
 
     (() => {
       const callBack = (list) => {
