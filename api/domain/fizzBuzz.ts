@@ -12,12 +12,9 @@ export class FizzBuzz {
   }
 
   generateList(): string[] {
-    let result: string[] = [];
+    const range = (start: number, end: number) =>
+      Array.from({ length: end - start + 1 }, (v, k) => k + start);
 
-    for (let i: number = 1; i <= 100; i++) {
-      result.push(this.generate(i));
-    }
-
-    return result;
+    return range(1, 100).map((i) => this.generate(i));
   }
 }
