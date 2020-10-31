@@ -1,5 +1,5 @@
 export class FizzBuzz {
-    greeting(): String {
-        return 'hello world'
+    generate(arg0: number): string {
+        return '1'
     }
 }

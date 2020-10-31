@@ -1,8 +1,8 @@
 import { FizzBuzz } from "./fizzBuzz";
 
 describe("FizzBuzz", () => {
-    it("あいさつする", () :void => {
+    it("1を渡したら文字列1を返す", () => {
         const fizzBuzz: FizzBuzz = new FizzBuzz;
-        expect(fizzBuzz.greeting()).toEqual('hello world')
+        expect(fizzBuzz.generate(1)).toEqual("1")
     })
 })
