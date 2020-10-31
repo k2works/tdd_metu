@@ -12,6 +12,10 @@ export class FizzBuzz {
   }
 
   print1To100(): string[] {
-    return ["1", "2", "3"];
+    let result: string[] = [];
+    for (let i: number = 1; i <= 100; i++) {
+      result.push(i.toString());
+    }
+    return result;
   }
 }
