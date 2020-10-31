@@ -1,8 +1,12 @@
 import { FizzBuzz } from "./domain/fizzBuzz.js";
 export class App {
   constructor() {
+    const fetchApi = () => {
+      return FizzBuzz.generateList();
+    };
+
     const table = (() => {
-      const list = FizzBuzz.generateList();
+      const list = fetchApi();
       const header = [...Array(10).keys()]
         .map((i) => `<td>${i + 1}</td>`)
         .join("");
