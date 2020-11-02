@@ -62,6 +62,9 @@ class FizzBuzz {
   generateList()
 }
 abstract FizzBuzzType {
+  TYPE_01 = 1
+  TYPE_02 = 2
+  TYPE_03 = 3
   isFizz(number)
   isBuzz(number)
   isFizzBuzz(number)

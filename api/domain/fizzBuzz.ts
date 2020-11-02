@@ -32,6 +32,10 @@ export class FizzBuzz {
 }
 
 export abstract class FizzBuzzType {
+  static TYPE_01 = 1;
+  static TYPE_02 = 2;
+  static TYPE_03 = 3;
+
   isFizz(n: number) {
     return n % 3 === 0;
   }
@@ -44,11 +48,11 @@ export abstract class FizzBuzzType {
 
   public static create(type: number): any {
     switch (type) {
-      case 1:
+      case FizzBuzzType.TYPE_01:
         return new FizzBuzzType01();
-      case 2:
+      case FizzBuzzType.TYPE_02:
         return new FizzBuzzType02();
-      case 3:
+      case FizzBuzzType.TYPE_03:
         return new FizzBuzzType03();
       default:
         throw "該当するタイプは存在しません";
