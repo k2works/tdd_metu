@@ -7,9 +7,9 @@ export class FizzBuzz {
   private _list: string[];
   private _type: FizzBuzzType;
 
-  constructor(type: number = 1) {
+  constructor(type: FizzBuzzType) {
     this._list = [];
-    this._type = FizzBuzzType.create(type);
+    this._type = type;
   }
 
   public get list() {

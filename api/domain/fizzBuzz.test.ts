@@ -10,7 +10,7 @@ describe("FizzBuzz", () => {
   describe("タイプ1の場合", () => {
     let fizzBuzz: FizzBuzz;
     beforeEach(() => {
-      fizzBuzz = new FizzBuzz(1);
+      fizzBuzz = new FizzBuzz(new FizzBuzzType01());
     });
     describe("三の倍数の場合", () => {
       it("3を渡したら文字列Fizzを返す", () => {
@@ -39,7 +39,7 @@ describe("FizzBuzz", () => {
     describe("1から100までの数の配列を返す", () => {
       let result: string[];
       beforeEach(() => {
-        const fizzBuzz = new FizzBuzz();
+        const fizzBuzz = new FizzBuzz(new FizzBuzzType01());
         fizzBuzz.generateList();
         result = fizzBuzz.list;
       });
@@ -61,7 +61,7 @@ describe("FizzBuzz", () => {
   describe("タイプ2の場合", () => {
     let fizzBuzz: FizzBuzz;
     beforeEach(() => {
-      fizzBuzz = new FizzBuzz(2);
+      fizzBuzz = new FizzBuzz(new FizzBuzzType02());
     });
     describe("三の倍数の場合", () => {
       it("3を渡したら文字列3を返す", () => {
@@ -89,7 +89,7 @@ describe("FizzBuzz", () => {
   describe("タイプ3の場合", () => {
     let fizzBuzz: FizzBuzz;
     beforeEach(() => {
-      fizzBuzz = new FizzBuzz(3);
+      fizzBuzz = new FizzBuzz(new FizzBuzzType03());
     });
     describe("三の倍数の場合", () => {
       it("3を渡したら文字列3を返す", () => {
