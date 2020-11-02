@@ -58,7 +58,6 @@ class FizzBuzz {
   BUZZ = Buzz
   list :string[]
   type :FizzBuzzType
-  {static} create(type)
   generate(number)
   generateList()
 }
@@ -66,6 +65,7 @@ abstract FizzBuzzType {
   isFizz(number)
   isBuzz(number)
   isFizzBuzz(number)
+  {static} create(type)
   {abstract} generate(number)
 }
 class FizzBuzzType01 {

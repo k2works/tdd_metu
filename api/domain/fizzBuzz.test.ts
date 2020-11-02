@@ -1,5 +1,6 @@
 import {
   FizzBuzz,
+  FizzBuzzType,
   FizzBuzzType01,
   FizzBuzzType02,
   FizzBuzzType03,
@@ -115,7 +116,9 @@ describe("FizzBuzz", () => {
 
   describe("それ以外のタイプの場合", () => {
     it("例外を発生する", () => {
-      expect(() => FizzBuzz.create(99)).toThrow("該当するタイプは存在しません");
+      expect(() => FizzBuzzType.create(99)).toThrow(
+        "該当するタイプは存在しません"
+      );
     });
   });
 });

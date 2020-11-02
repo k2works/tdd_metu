@@ -9,7 +9,7 @@ export class FizzBuzz {
 
   constructor(type: number = 1) {
     this._list = [];
-    this._type = FizzBuzz.create(type);
+    this._type = FizzBuzzType.create(type);
   }
 
   public get list() {
@@ -18,19 +18,6 @@ export class FizzBuzz {
 
   public get type() {
     return this._type;
-  }
-
-  public static create(type: number): any {
-    switch (type) {
-      case 1:
-        return new FizzBuzzType01();
-      case 2:
-        return new FizzBuzzType02();
-      case 3:
-        return new FizzBuzzType03();
-      default:
-        throw "該当するタイプは存在しません";
-    }
   }
 
   generate(n: number): string {
@@ -53,6 +40,19 @@ export abstract class FizzBuzzType {
   }
   isFizzBuzz(n: number) {
     return n % 3 === 0 && n % 5 === 0;
+  }
+
+  public static create(type: number): any {
+    switch (type) {
+      case 1:
+        return new FizzBuzzType01();
+      case 2:
+        return new FizzBuzzType02();
+      case 3:
+        return new FizzBuzzType03();
+      default:
+        throw "該当するタイプは存在しません";
+    }
   }
 
   abstract generate(n: number): string;
