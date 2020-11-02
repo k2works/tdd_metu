@@ -5,7 +5,7 @@ export class FizzBuzz {
   static FIZZ = "Fizz";
   static BUZZ = "Buzz";
   private _list: string[];
-  private _type: any;
+  private _type: FizzBuzzType;
 
   constructor(type: number = 1) {
     this._list = [];
@@ -33,7 +33,7 @@ export class FizzBuzz {
     }
   }
 
-  generate(n: number): any {
+  generate(n: number): string {
     return this._type.generate(n);
   }
 
@@ -44,7 +44,13 @@ export class FizzBuzz {
   }
 }
 
-export class FizzBuzzType01 {
+export class FizzBuzzType {
+  generate(n: number): string {
+    throw new Error("Method not implemented.");
+  }
+}
+
+export class FizzBuzzType01 extends FizzBuzzType {
   generate(n: number): string {
     const isFizzBuzz = n % 3 === 0 && n % 5 === 0;
     const isFizz = n % 3 === 0;
@@ -57,12 +63,12 @@ export class FizzBuzzType01 {
     return n.toString();
   }
 }
-export class FizzBuzzType02 {
+export class FizzBuzzType02 extends FizzBuzzType {
   generate(n: number): string {
     return n.toString();
   }
 }
-export class FizzBuzzType03 {
+export class FizzBuzzType03 extends FizzBuzzType {
   generate(n: number): string {
     const isFizzBuzz = n % 3 === 0 && n % 5 === 0;
 

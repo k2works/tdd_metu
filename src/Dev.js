@@ -62,6 +62,9 @@ class FizzBuzz {
   generate(number)
   generateList()
 }
+class FizzBuzzType {
+  generate(number)
+}
 class FizzBuzzType01 {
   generate(number)
 }
@@ -71,9 +74,10 @@ class FizzBuzzType02 {
 class FizzBuzzType03 {
   generate(number)
 }
-FizzBuzz *- FizzBuzzType01
-FizzBuzz *- FizzBuzzType02
-FizzBuzz *- FizzBuzzType03
+FizzBuzz *- FizzBuzzType
+FizzBuzzType <|-- FizzBuzzType01
+FizzBuzzType <|-- FizzBuzzType02
+FizzBuzzType <|-- FizzBuzzType03
 `;
 
 const erd = `
