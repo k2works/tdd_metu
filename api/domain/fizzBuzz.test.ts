@@ -132,5 +132,12 @@ describe("FizzBuzz", () => {
       );
       expect(() => command.execute(-1)).toThrow("値は正のみ");
     });
+
+    it("100より多い数を許可しない", () => {
+      const command = new FizzBuzzListCommand(
+        FizzBuzzType.create(FizzBuzzType.TYPE_01)
+      );
+      expect(() => command.execute(101)).toThrow("最大値は100");
+    });
   });
 });

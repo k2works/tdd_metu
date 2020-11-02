@@ -84,6 +84,10 @@ export class FizzBuzzList {
   private _value: FizzBuzzValue[];
 
   constructor(list: FizzBuzzValue[]) {
+    assert(
+      list.length <= FizzBuzzList.MAX_NUMBER,
+      `最大値は${FizzBuzzList.MAX_NUMBER}`
+    );
     this._value = list;
   }
 
