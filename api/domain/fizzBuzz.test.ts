@@ -124,4 +124,13 @@ describe("FizzBuzz", () => {
       );
     });
   });
+
+  describe("例外ケース", () => {
+    it("値は正の値のみ許可する", () => {
+      const command = new FizzBuzzValueCommand(
+        FizzBuzzType.create(FizzBuzzType.TYPE_01)
+      );
+      expect(() => command.execute(-1)).toThrow("値は正のみ");
+    });
+  });
 });

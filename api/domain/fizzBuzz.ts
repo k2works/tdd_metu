@@ -1,4 +1,5 @@
 import { range } from "./utilities";
+import assert from "assert";
 
 export abstract class FizzBuzzType {
   static FIZZ = "Fizz";
@@ -62,6 +63,7 @@ export class FizzBuzzValue {
   private _value: string;
 
   constructor(n: number, value: string) {
+    assert(n >= 0, "値は正のみ");
     this._number = n;
     this._value = value;
   }
