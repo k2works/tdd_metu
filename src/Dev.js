@@ -57,12 +57,12 @@ class FizzBuzz {
   FIZZ = Fizz
   BUZZ = Buzz
   list :string[]
-  type :any
+  type :FizzBuzzType
   {static} create(type)
   generate(number)
   generateList()
 }
-class FizzBuzzType {
+interface FizzBuzzType {
   generate(number)
 }
 class FizzBuzzType01 {

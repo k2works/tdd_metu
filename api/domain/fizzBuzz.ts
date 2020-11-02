@@ -44,13 +44,11 @@ export class FizzBuzz {
   }
 }
 
-export class FizzBuzzType {
-  generate(n: number): string {
-    throw new Error("Method not implemented.");
-  }
+export interface FizzBuzzType {
+  generate(n: number): string
 }
 
-export class FizzBuzzType01 extends FizzBuzzType {
+export class FizzBuzzType01 implements FizzBuzzType {
   generate(n: number): string {
     const isFizzBuzz = n % 3 === 0 && n % 5 === 0;
     const isFizz = n % 3 === 0;
@@ -63,12 +61,12 @@ export class FizzBuzzType01 extends FizzBuzzType {
     return n.toString();
   }
 }
-export class FizzBuzzType02 extends FizzBuzzType {
+export class FizzBuzzType02 implements FizzBuzzType {
   generate(n: number): string {
     return n.toString();
   }
 }
-export class FizzBuzzType03 extends FizzBuzzType {
+export class FizzBuzzType03 implements FizzBuzzType {
   generate(n: number): string {
     const isFizzBuzz = n % 3 === 0 && n % 5 === 0;
 
