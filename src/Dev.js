@@ -52,15 +52,6 @@ const contents = `
 `;
 
 const uml = `
-class FizzBuzz {
-  MAX_NUMBER = 100
-  FIZZ = Fizz
-  BUZZ = Buzz
-  list :FizzBuzzValue[]
-  type :FizzBuzzType
-  generate(number)
-  generateList()
-}
 abstract FizzBuzzType {
   TYPE_01 = 1
   TYPE_02 = 2
@@ -97,18 +88,17 @@ class FizzBuzzListCommand {
   type: FizzBuzzType
   execute(number)
 }
-FizzBuzz *- FizzBuzzList
-FizzBuzz *-- FizzBuzzType
-FizzBuzzList *- FizzBuzzValue
-FizzBuzzCommand <|-- FizzBuzzValueCommand
-FizzBuzzValueCommand *- FizzBuzzType
-FizzBuzzCommand <|-- FizzBuzzListCommand
-FizzBuzzListCommand *- FizzBuzzType
-FizzBuzzListCommand -> FizzBuzzList
 FizzBuzzType <|-- FizzBuzzType01
 FizzBuzzType <|-- FizzBuzzType02
 FizzBuzzType <|-- FizzBuzzType03
-FizzBuzzValue <- FizzBuzzType
+FizzBuzzType01 --> FizzBuzzValue
+FizzBuzzType02 --> FizzBuzzValue
+FizzBuzzType03 --> FizzBuzzValue
+FizzBuzzList *- FizzBuzzValue
+FizzBuzzCommand <|-- FizzBuzzValueCommand
+FizzBuzzCommand <|-- FizzBuzzListCommand
+FizzBuzzListCommand --> FizzBuzzList
+FizzBuzzCommand *- FizzBuzzType
 `;
 
 const erd = `

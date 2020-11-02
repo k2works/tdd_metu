@@ -1,5 +1,4 @@
 import {
-  FizzBuzz,
   FizzBuzzCommand,
   FizzBuzzList,
   FizzBuzzListCommand,

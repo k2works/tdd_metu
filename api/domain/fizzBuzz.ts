@@ -1,33 +1,5 @@
 import { range } from "./utilities";
 
-export class FizzBuzz {
-  private _list: FizzBuzzList;
-  private _type: FizzBuzzType;
-
-  constructor(type: FizzBuzzType) {
-    this._list = new FizzBuzzList([]);
-    this._type = type;
-  }
-
-  public get list() {
-    return this._list;
-  }
-
-  public get type() {
-    return this._type;
-  }
-
-  generate(n: number): FizzBuzzValue {
-    return this._type.generate(n);
-  }
-
-  generateList(): void {
-    this._list = this._list.add(
-      range(1, FizzBuzzList.MAX_NUMBER).map((i) => this._type.generate(i))
-    );
-  }
-}
-
 export abstract class FizzBuzzType {
   static FIZZ = "Fizz";
   static BUZZ = "Buzz";
