@@ -60,6 +60,22 @@ describe("FizzBuzz", () => {
         expect(fizzBuzz.generate(3, 2)).toEqual("3");
       });
     });
+
+    describe("五の倍数の場合", () => {
+      it("5を渡したら文字列5を返す", () => {
+        expect(fizzBuzz.generate(5, 2)).toEqual("5");
+      });
+    });
+    describe("三と五の倍数の場合", () => {
+      it("15を渡したら文字列FizzBuzzを返す", () => {
+        expect(fizzBuzz.generate(15, 2)).toEqual("15");
+      });
+    });
+    describe("その他の場合", () => {
+      it("1を渡したら文字列1を返す", () => {
+        expect(fizzBuzz.generate(1, 2)).toEqual("1");
+      });
+    });
   });
 
   describe("タイプ3の場合", () => {});
