@@ -4,12 +4,20 @@ export class FizzBuzz {
   static MAX_NUMBER = 100;
   static FIZZ = "Fizz";
   static BUZZ = "Buzz";
-  public list: string[];
-  public type: number;
+  private _list: string[];
+  private _type: number;
 
   constructor(type: number = 1) {
-    this.list = [];
-    this.type = type;
+    this._list = [];
+    this._type = type;
+  }
+
+  public get list() {
+    return this._list;
+  }
+
+  public get type() {
+    return this._type;
   }
 
   generate(n: number): string {
@@ -17,7 +25,7 @@ export class FizzBuzz {
     const isFizz = n % 3 === 0;
     const isBuzz = n % 5 === 0;
 
-    switch (this.type) {
+    switch (this._type) {
       case 1:
         if (isFizzBuzz) return `${FizzBuzz.FIZZ}${FizzBuzz.BUZZ}`;
         if (isFizz) return FizzBuzz.FIZZ;
@@ -36,6 +44,6 @@ export class FizzBuzz {
   }
 
   generateList(): void {
-    this.list = range(1, FizzBuzz.MAX_NUMBER).map((i) => this.generate(i));
+    this._list = range(1, FizzBuzz.MAX_NUMBER).map((i) => this.generate(i));
   }
 }
