@@ -62,17 +62,17 @@ class FizzBuzz {
   generate(number)
   generateList()
 }
-interface FizzBuzzType {
-  generate(number)
+abstract FizzBuzzType {
+  isFizz(number)
+  isBuzz(number)
+  isFizzBuzz(number)
+  {abstract} generate(number)
 }
 class FizzBuzzType01 {
-  generate(number)
 }
 class FizzBuzzType02 {
-  generate(number)
 }
 class FizzBuzzType03 {
-  generate(number)
 }
 FizzBuzz *- FizzBuzzType
 FizzBuzzType <|-- FizzBuzzType01

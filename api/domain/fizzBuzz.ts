@@ -44,33 +44,37 @@ export class FizzBuzz {
   }
 }
 
-export interface FizzBuzzType {
-  generate(n: number): string
+export abstract class FizzBuzzType {
+  isFizz(n: number) {
+    return n % 3 === 0;
+  }
+  isBuzz(n: number) {
+    return n % 5 === 0;
+  }
+  isFizzBuzz(n: number) {
+    return n % 3 === 0 && n % 5 === 0;
+  }
+
+  abstract generate(n: number): string;
 }
 
-export class FizzBuzzType01 implements FizzBuzzType {
+export class FizzBuzzType01 extends FizzBuzzType {
   generate(n: number): string {
-    const isFizzBuzz = n % 3 === 0 && n % 5 === 0;
-    const isFizz = n % 3 === 0;
-    const isBuzz = n % 5 === 0;
-
-    if (isFizzBuzz) return `${FizzBuzz.FIZZ}${FizzBuzz.BUZZ}`;
-    if (isFizz) return FizzBuzz.FIZZ;
-    if (isBuzz) return FizzBuzz.BUZZ;
+    if (this.isFizzBuzz(n)) return `${FizzBuzz.FIZZ}${FizzBuzz.BUZZ}`;
+    if (this.isFizz(n)) return FizzBuzz.FIZZ;
+    if (this.isBuzz(n)) return FizzBuzz.BUZZ;
 
     return n.toString();
   }
 }
-export class FizzBuzzType02 implements FizzBuzzType {
+export class FizzBuzzType02 extends FizzBuzzType {
   generate(n: number): string {
     return n.toString();
   }
 }
-export class FizzBuzzType03 implements FizzBuzzType {
+export class FizzBuzzType03 extends FizzBuzzType {
   generate(n: number): string {
-    const isFizzBuzz = n % 3 === 0 && n % 5 === 0;
-
-    if (isFizzBuzz) return `${FizzBuzz.FIZZ}${FizzBuzz.BUZZ}`;
+    if (this.isFizzBuzz(n)) return `${FizzBuzz.FIZZ}${FizzBuzz.BUZZ}`;
 
     return n.toString();
   }
