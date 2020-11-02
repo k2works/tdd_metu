@@ -17,8 +17,10 @@ export class FizzBuzz {
         if (isBuzz) return FizzBuzz.BUZZ;
 
         return n.toString();
-      default:
+      case 2:
         return n.toString();
+      default:
+        return "";
     }
   }
 

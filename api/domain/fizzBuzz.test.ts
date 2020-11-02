@@ -50,7 +50,17 @@ describe("FizzBuzz", () => {
     });
   });
 
-  describe("タイプ2の場合", () => {});
+  describe("タイプ2の場合", () => {
+    let fizzBuzz: FizzBuzz;
+    beforeEach(() => {
+      fizzBuzz = new FizzBuzz();
+    });
+    describe("三の倍数の場合", () => {
+      it("3を渡したら文字列3を返す", () => {
+        expect(fizzBuzz.generate(3, 2)).toEqual("3");
+      });
+    });
+  });
 
   describe("タイプ3の場合", () => {});
 });
