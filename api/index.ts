@@ -1,9 +1,8 @@
 import { NowRequest, NowResponse } from "@vercel/node";
-import { FizzBuzz, FizzBuzzType01 } from "./domain/fizzBuzz";
+import { FizzBuzzListCommand, FizzBuzzType01 } from "./domain/fizzBuzz";
 
 export default function (req: NowRequest, res: NowResponse) {
   res.setHeader("Access-Control-Allow-Origin", "*");
-  const fizzBuzz = new FizzBuzz(new FizzBuzzType01());
-  fizzBuzz.generateList();
-  res.send(fizzBuzz.list.value);
+  const fizzBuzz = new FizzBuzzListCommand(new FizzBuzzType01());
+  res.send(fizzBuzz.execute(100));
 }
