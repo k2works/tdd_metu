@@ -7,9 +7,9 @@ import {
 
 describe("FizzBuzz", () => {
   describe("タイプ1の場合", () => {
-    let fizzBuzz: FizzBuzzType01;
+    let fizzBuzz: FizzBuzz;
     beforeEach(() => {
-      fizzBuzz = FizzBuzz.create(1);
+      fizzBuzz = new FizzBuzz(1);
     });
     describe("三の倍数の場合", () => {
       it("3を渡したら文字列Fizzを返す", () => {
@@ -58,9 +58,9 @@ describe("FizzBuzz", () => {
   });
 
   describe("タイプ2の場合", () => {
-    let fizzBuzz: FizzBuzzType02;
+    let fizzBuzz: FizzBuzz;
     beforeEach(() => {
-      fizzBuzz = FizzBuzz.create(2);
+      fizzBuzz = new FizzBuzz(2);
     });
     describe("三の倍数の場合", () => {
       it("3を渡したら文字列3を返す", () => {
@@ -86,9 +86,9 @@ describe("FizzBuzz", () => {
   });
 
   describe("タイプ3の場合", () => {
-    let fizzBuzz: FizzBuzzType03;
+    let fizzBuzz: FizzBuzz;
     beforeEach(() => {
-      fizzBuzz = FizzBuzz.create(3);
+      fizzBuzz = new FizzBuzz(3);
     });
     describe("三の倍数の場合", () => {
       it("3を渡したら文字列3を返す", () => {
