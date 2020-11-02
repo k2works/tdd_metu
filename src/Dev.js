@@ -57,7 +57,7 @@ class FizzBuzz {
   FIZZ = Fizz
   BUZZ = Buzz
   list :string[]
-  type :number
+  type :any
   {static} create(type)
   generate(number)
   generateList()
@@ -71,9 +71,9 @@ class FizzBuzzType02 {
 class FizzBuzzType03 {
   generate(number)
 }
-FizzBuzz -> FizzBuzzType01
-FizzBuzz -> FizzBuzzType02
-FizzBuzz -> FizzBuzzType03
+FizzBuzz *- FizzBuzzType01
+FizzBuzz *- FizzBuzzType02
+FizzBuzz *- FizzBuzzType03
 `;
 
 const erd = `

@@ -5,11 +5,11 @@ export class FizzBuzz {
   static FIZZ = "Fizz";
   static BUZZ = "Buzz";
   private _list: string[];
-  private _type: number;
+  private _type: any;
 
   constructor(type: number = 1) {
     this._list = [];
-    this._type = type;
+    this._type = FizzBuzz.create(type);
   }
 
   public get list() {
@@ -57,7 +57,9 @@ export class FizzBuzz {
   }
 
   generateList(): void {
-    this._list = range(1, FizzBuzz.MAX_NUMBER).map((i) => this.generate(i));
+    this._list = range(1, FizzBuzz.MAX_NUMBER).map((i) =>
+      this._type.generate(i)
+    );
   }
 }
 
