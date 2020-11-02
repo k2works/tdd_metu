@@ -1,5 +1,4 @@
 import { range } from "./utilities";
-import assert from "assert";
 
 export abstract class FizzBuzzType {
   static FIZZ = "Fizz";
@@ -63,7 +62,7 @@ export class FizzBuzzValue {
   private _value: string;
 
   constructor(n: number, value: string) {
-    assert(n >= 0, "値は正のみ");
+    if (n < 0) throw "値は正のみ";
     this._number = n;
     this._value = value;
   }
@@ -84,10 +83,8 @@ export class FizzBuzzList {
   private _value: FizzBuzzValue[];
 
   constructor(list: FizzBuzzValue[]) {
-    assert(
-      list.length <= FizzBuzzList.MAX_NUMBER,
-      `最大値は${FizzBuzzList.MAX_NUMBER}`
-    );
+    if (list.length > FizzBuzzList.MAX_NUMBER)
+      throw `最大値は${FizzBuzzList.MAX_NUMBER}`;
     this._value = list;
   }
 
