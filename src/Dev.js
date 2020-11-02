@@ -56,11 +56,15 @@ class FizzBuzz {
   MAX_NUMBER = 100
   FIZZ = Fizz
   BUZZ = Buzz
-  list
-  type
-  static generate(number)
-  static generateList()
+  list :string[]
+  type :number
+  {static} create(type)
+  generate(number)
+  generateList()
 }
+FizzBuzz -> FizzBuzzType01
+FizzBuzz -> FizzBuzzType02
+FizzBuzz -> FizzBuzzType03
 `;
 
 const erd = `

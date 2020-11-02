@@ -20,6 +20,22 @@ export class FizzBuzz {
     return this._type;
   }
 
+  public static create(type: number) {
+    switch (type) {
+      case 1:
+        new FizzBuzzType01();
+        break;
+      case 2:
+        new FizzBuzzType02();
+        break;
+      case 3:
+        new FizzBuzzType03();
+        break;
+      default:
+        throw "該当するタイプは存在しません";
+    }
+  }
+
   generate(n: number): string {
     const isFizzBuzz = n % 3 === 0 && n % 5 === 0;
     const isFizz = n % 3 === 0;
@@ -47,3 +63,7 @@ export class FizzBuzz {
     this._list = range(1, FizzBuzz.MAX_NUMBER).map((i) => this.generate(i));
   }
 }
+
+class FizzBuzzType01 {}
+class FizzBuzzType02 {}
+class FizzBuzzType03 {}
