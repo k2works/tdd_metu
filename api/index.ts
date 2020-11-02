@@ -5,5 +5,5 @@ export default function (req: NowRequest, res: NowResponse) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   const fizzBuzz = new FizzBuzz(new FizzBuzzType01());
   fizzBuzz.generateList();
-  res.send(fizzBuzz.list);
+  res.send(fizzBuzz.list.value);
 }

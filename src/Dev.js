@@ -56,7 +56,7 @@ class FizzBuzz {
   MAX_NUMBER = 100
   FIZZ = Fizz
   BUZZ = Buzz
-  list :string[]
+  list :FizzBuzzValue[]
   type :FizzBuzzType
   generate(number)
   generateList()
@@ -82,7 +82,13 @@ class FizzBuzzValue {
   value: string
   equals()
 }
-FizzBuzz *- FizzBuzzType
+class FizzBuzzList {
+  value: FizzBuzzValue[]
+  equals()
+}
+FizzBuzz *- FizzBuzzList
+FizzBuzz *-- FizzBuzzType
+FizzBuzzList *- FizzBuzzValue
 FizzBuzzType <|-- FizzBuzzType01
 FizzBuzzType <|-- FizzBuzzType02
 FizzBuzzType <|-- FizzBuzzType03
