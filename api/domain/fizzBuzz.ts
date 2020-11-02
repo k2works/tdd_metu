@@ -24,7 +24,7 @@ export class FizzBuzz {
 
         return n.toString();
       default:
-        return "";
+        throw "該当するタイプは存在しません";
     }
   }
 

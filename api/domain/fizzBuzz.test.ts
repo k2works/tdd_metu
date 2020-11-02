@@ -105,4 +105,17 @@ describe("FizzBuzz", () => {
       });
     });
   });
+
+  describe("それ以外のタイプの場合", () => {
+    let fizzBuzz: FizzBuzz;
+    beforeEach(() => {
+      fizzBuzz = new FizzBuzz();
+    });
+
+    it("例外を発生する", () => {
+      expect(() => fizzBuzz.generate(1, 99)).toThrow(
+        "該当するタイプは存在しません"
+      );
+    });
+  });
 });
