@@ -26,7 +26,7 @@ export abstract class FizzBuzzType {
       case FizzBuzzType.TYPE_03:
         return new FizzBuzzType03();
       default:
-        throw "該当するタイプは存在しません";
+        return new FizzBuzzTypeNotDefined();
     }
   }
 
@@ -54,6 +54,16 @@ export class FizzBuzzType03 extends FizzBuzzType {
       return new FizzBuzzValue(n, `${FizzBuzzType.FIZZ}${FizzBuzzType.BUZZ}`);
 
     return new FizzBuzzValue(n, n.toString());
+  }
+}
+
+export class FizzBuzzTypeNotDefined extends FizzBuzzType {
+  generate(n: number): FizzBuzzValue {
+    return new FizzBuzzValue(n, "");
+  }
+
+  toString(): string {
+    return "未定義";
   }
 }
 

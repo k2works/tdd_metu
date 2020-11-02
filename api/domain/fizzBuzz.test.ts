@@ -118,10 +118,10 @@ describe("FizzBuzz", () => {
   });
 
   describe("それ以外のタイプの場合", () => {
-    it("例外を発生する", () => {
-      expect(() => FizzBuzzType.create(99)).toThrow(
-        "該当するタイプは存在しません"
-      );
+    it("未定義のタイプを返す", () => {
+      const fizzBuzz = FizzBuzzType.create(99);
+
+      expect(fizzBuzz.toString()).toEqual("未定義");
     });
   });
 

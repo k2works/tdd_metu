@@ -70,6 +70,9 @@ class FizzBuzzType02 {
 }
 class FizzBuzzType03 {
 }
+class FizzBuzzTypeNotDefined {
+  toString()
+}
 class FizzBuzzValue {
   number: number
   value: string
@@ -94,9 +97,11 @@ class FizzBuzzListCommand {
 FizzBuzzType <|-- FizzBuzzType01
 FizzBuzzType <|-- FizzBuzzType02
 FizzBuzzType <|-- FizzBuzzType03
+FizzBuzzType <|-- FizzBuzzTypeNotDefined
 FizzBuzzType01 --> FizzBuzzValue
 FizzBuzzType02 --> FizzBuzzValue
 FizzBuzzType03 --> FizzBuzzValue
+FizzBuzzTypeNotDefined --> FizzBuzzValue
 FizzBuzzList *- FizzBuzzValue
 FizzBuzzCommand <|-- FizzBuzzValueCommand
 FizzBuzzCommand <|-- FizzBuzzListCommand
