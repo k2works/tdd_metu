@@ -62,6 +62,15 @@ class FizzBuzz {
   generate(number)
   generateList()
 }
+class FizzBuzzType01 {
+  generate(number)
+}
+class FizzBuzzType02 {
+  generate(number)
+}
+class FizzBuzzType03 {
+  generate(number)
+}
 FizzBuzz -> FizzBuzzType01
 FizzBuzz -> FizzBuzzType02
 FizzBuzz -> FizzBuzzType03

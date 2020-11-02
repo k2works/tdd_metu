@@ -64,6 +64,30 @@ export class FizzBuzz {
   }
 }
 
-class FizzBuzzType01 {}
-class FizzBuzzType02 {}
-class FizzBuzzType03 {}
+class FizzBuzzType01 {
+  generate(n: number) {
+    const isFizzBuzz = n % 3 === 0 && n % 5 === 0;
+    const isFizz = n % 3 === 0;
+    const isBuzz = n % 5 === 0;
+
+    if (isFizzBuzz) return `${FizzBuzz.FIZZ}${FizzBuzz.BUZZ}`;
+    if (isFizz) return FizzBuzz.FIZZ;
+    if (isBuzz) return FizzBuzz.BUZZ;
+
+    return n.toString();
+  }
+}
+class FizzBuzzType02 {
+  generate(n: number) {
+    return n.toString();
+  }
+}
+class FizzBuzzType03 {
+  generate(n: number) {
+    const isFizzBuzz = n % 3 === 0 && n % 5 === 0;
+
+    if (isFizzBuzz) return `${FizzBuzz.FIZZ}${FizzBuzz.BUZZ}`;
+
+    return n.toString();
+  }
+}
