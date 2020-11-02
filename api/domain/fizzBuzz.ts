@@ -6,12 +6,12 @@ export class FizzBuzz {
   static BUZZ = "Buzz";
 
   generate(n: number, type: number = 1): string {
+    const isFizzBuzz = n % 3 === 0 && n % 5 === 0;
+    const isFizz = n % 3 === 0;
+    const isBuzz = n % 5 === 0;
+
     switch (type) {
       case 1:
-        const isFizzBuzz = n % 3 === 0 && n % 5 === 0;
-        const isFizz = n % 3 === 0;
-        const isBuzz = n % 5 === 0;
-
         if (isFizzBuzz) return `${FizzBuzz.FIZZ}${FizzBuzz.BUZZ}`;
         if (isFizz) return FizzBuzz.FIZZ;
         if (isBuzz) return FizzBuzz.BUZZ;
@@ -20,8 +20,7 @@ export class FizzBuzz {
       case 2:
         return n.toString();
       case 3:
-        if (n % 3 === 0 && n % 5 === 0)
-          return `${FizzBuzz.FIZZ}${FizzBuzz.BUZZ}`;
+        if (isFizzBuzz) return `${FizzBuzz.FIZZ}${FizzBuzz.BUZZ}`;
 
         return n.toString();
       default:
