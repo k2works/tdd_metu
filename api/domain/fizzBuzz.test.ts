@@ -33,7 +33,8 @@ describe("FizzBuzz", () => {
     describe("1から100までの数の配列を返す", () => {
       let result: string[];
       beforeEach(() => {
-        result = fizzBuzz.generateList();
+        fizzBuzz.generateList();
+        result = fizzBuzz.list;
       });
       it("配列の初めは文字列の1を返す", () => {
         expect(result[0]).toEqual("1");

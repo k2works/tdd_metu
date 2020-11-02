@@ -4,6 +4,11 @@ export class FizzBuzz {
   static MAX_NUMBER = 100;
   static FIZZ = "Fizz";
   static BUZZ = "Buzz";
+  public list: string[];
+
+  constructor() {
+    this.list = [];
+  }
 
   generate(n: number, type: number = 1): string {
     const isFizzBuzz = n % 3 === 0 && n % 5 === 0;
@@ -28,7 +33,7 @@ export class FizzBuzz {
     }
   }
 
-  generateList(): string[] {
-    return range(1, FizzBuzz.MAX_NUMBER).map((i) => this.generate(i));
+  generateList(): void {
+    this.list = range(1, FizzBuzz.MAX_NUMBER).map((i) => this.generate(i));
   }
 }
