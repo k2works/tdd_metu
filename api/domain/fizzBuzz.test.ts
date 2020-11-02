@@ -54,27 +54,27 @@ describe("FizzBuzz", () => {
   describe("タイプ2の場合", () => {
     let fizzBuzz: FizzBuzz;
     beforeEach(() => {
-      fizzBuzz = new FizzBuzz();
+      fizzBuzz = new FizzBuzz(2);
     });
     describe("三の倍数の場合", () => {
       it("3を渡したら文字列3を返す", () => {
-        expect(fizzBuzz.generate(3, 2)).toEqual("3");
+        expect(fizzBuzz.generate(3)).toEqual("3");
       });
     });
 
     describe("五の倍数の場合", () => {
       it("5を渡したら文字列5を返す", () => {
-        expect(fizzBuzz.generate(5, 2)).toEqual("5");
+        expect(fizzBuzz.generate(5)).toEqual("5");
       });
     });
     describe("三と五の倍数の場合", () => {
       it("15を渡したら文字列15を返す", () => {
-        expect(fizzBuzz.generate(15, 2)).toEqual("15");
+        expect(fizzBuzz.generate(15)).toEqual("15");
       });
     });
     describe("その他の場合", () => {
       it("1を渡したら文字列1を返す", () => {
-        expect(fizzBuzz.generate(1, 2)).toEqual("1");
+        expect(fizzBuzz.generate(1)).toEqual("1");
       });
     });
   });
@@ -82,27 +82,27 @@ describe("FizzBuzz", () => {
   describe("タイプ3の場合", () => {
     let fizzBuzz: FizzBuzz;
     beforeEach(() => {
-      fizzBuzz = new FizzBuzz();
+      fizzBuzz = new FizzBuzz(3);
     });
     describe("三の倍数の場合", () => {
       it("3を渡したら文字列3を返す", () => {
-        expect(fizzBuzz.generate(3, 3)).toEqual("3");
+        expect(fizzBuzz.generate(3)).toEqual("3");
       });
     });
 
     describe("五の倍数の場合", () => {
       it("5を渡したら文字列5を返す", () => {
-        expect(fizzBuzz.generate(5, 3)).toEqual("5");
+        expect(fizzBuzz.generate(5)).toEqual("5");
       });
     });
     describe("三と五の倍数の場合", () => {
       it("15を渡したら文字列FizzBuzzを返す", () => {
-        expect(fizzBuzz.generate(15, 3)).toEqual("FizzBuzz");
+        expect(fizzBuzz.generate(15)).toEqual("FizzBuzz");
       });
     });
     describe("その他の場合", () => {
       it("1を渡したら文字列1を返す", () => {
-        expect(fizzBuzz.generate(1, 3)).toEqual("1");
+        expect(fizzBuzz.generate(1)).toEqual("1");
       });
     });
   });
@@ -110,11 +110,11 @@ describe("FizzBuzz", () => {
   describe("それ以外のタイプの場合", () => {
     let fizzBuzz: FizzBuzz;
     beforeEach(() => {
-      fizzBuzz = new FizzBuzz();
+      fizzBuzz = new FizzBuzz(99);
     });
 
     it("例外を発生する", () => {
-      expect(() => fizzBuzz.generate(1, 99)).toThrow(
+      expect(() => fizzBuzz.generate(1)).toThrow(
         "該当するタイプは存在しません"
       );
     });

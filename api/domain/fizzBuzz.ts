@@ -5,17 +5,19 @@ export class FizzBuzz {
   static FIZZ = "Fizz";
   static BUZZ = "Buzz";
   public list: string[];
+  public type: number;
 
-  constructor() {
+  constructor(type: number = 1) {
     this.list = [];
+    this.type = type;
   }
 
-  generate(n: number, type: number = 1): string {
+  generate(n: number): string {
     const isFizzBuzz = n % 3 === 0 && n % 5 === 0;
     const isFizz = n % 3 === 0;
     const isBuzz = n % 5 === 0;
 
-    switch (type) {
+    switch (this.type) {
       case 1:
         if (isFizzBuzz) return `${FizzBuzz.FIZZ}${FizzBuzz.BUZZ}`;
         if (isFizz) return FizzBuzz.FIZZ;
