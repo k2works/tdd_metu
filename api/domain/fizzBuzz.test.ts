@@ -2,6 +2,7 @@ import {
   FizzBuzz,
   FizzBuzzCommand,
   FizzBuzzList,
+  FizzBuzzListCommand,
   FizzBuzzType,
   FizzBuzzType01,
   FizzBuzzType02,
@@ -41,23 +42,22 @@ describe("FizzBuzz", () => {
     });
 
     describe("1から100までの数の配列を返す", () => {
-      let result: FizzBuzzList;
+      let result: FizzBuzzValue[];
       beforeEach(() => {
-        const fizzBuzz = new FizzBuzz(new FizzBuzzType01());
-        fizzBuzz.generateList();
-        result = fizzBuzz.list;
+        const fizzBuzz = new FizzBuzzListCommand(new FizzBuzzType01());
+        result = fizzBuzz.execute(100);
       });
       it("配列の初めは文字列の1を返す", () => {
-        expect(result.value[0].value).toEqual("1");
+        expect(result[0].value).toEqual("1");
       });
       it("配列の最後は文字列のBuzzを返す", () => {
-        expect(result.value[result.value.length - 1].value).toEqual("Buzz");
+        expect(result[result.length - 1].value).toEqual("Buzz");
       });
       it("配列の4番目は文字列のBuzzを返す", () => {
-        expect(result.value[4].value).toEqual("Buzz");
+        expect(result[4].value).toEqual("Buzz");
       });
       it("配列の14番目は文字列のFizzBuzzを返す", () => {
-        expect(result.value[14].value).toEqual("FizzBuzz");
+        expect(result[14].value).toEqual("FizzBuzz");
       });
     });
   });

@@ -80,28 +80,35 @@ class FizzBuzzType03 {
 class FizzBuzzValue {
   number: number
   value: string
-  equals()
+  equals(other)
 }
 class FizzBuzzList {
   value: FizzBuzzValue[]
-  equals()
+  equals(other)
 }
 interface FizzBuzzCommand {
-  execute()
+  execute(number)
 }
 class FizzBuzzValueCommand {
   type: FizzBuzzType
-  execute()
+  execute(number)
+}
+class FizzBuzzListCommand {
+  type: FizzBuzzType
+  execute(number)
 }
 FizzBuzz *- FizzBuzzList
 FizzBuzz *-- FizzBuzzType
 FizzBuzzList *- FizzBuzzValue
 FizzBuzzCommand <|-- FizzBuzzValueCommand
 FizzBuzzValueCommand *- FizzBuzzType
+FizzBuzzCommand <|-- FizzBuzzListCommand
+FizzBuzzListCommand *- FizzBuzzType
+FizzBuzzListCommand -> FizzBuzzList
 FizzBuzzType <|-- FizzBuzzType01
 FizzBuzzType <|-- FizzBuzzType02
 FizzBuzzType <|-- FizzBuzzType03
-FizzBuzzType -> FizzBuzzValue
+FizzBuzzValue <- FizzBuzzType
 `;
 
 const erd = `

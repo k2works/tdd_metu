@@ -126,7 +126,7 @@ export class FizzBuzzList {
 }
 
 export interface FizzBuzzCommand {
-  execute(n: number): string;
+  execute(n: number): any;
 }
 
 export class FizzBuzzValueCommand implements FizzBuzzCommand {
@@ -137,5 +137,17 @@ export class FizzBuzzValueCommand implements FizzBuzzCommand {
   }
   execute(n: number): string {
     return this._type.generate(n).value;
+  }
+}
+
+export class FizzBuzzListCommand implements FizzBuzzCommand {
+  private _type: FizzBuzzType;
+
+  constructor(type: FizzBuzzType) {
+    this._type = type;
+  }
+  execute(n: number): FizzBuzzValue[] {
+    const list = range(1, n).map((i) => this._type.generate(i));
+    return new FizzBuzzList(list).value;
   }
 }
