@@ -1,10 +1,15 @@
-import { FizzBuzz } from "./fizzBuzz";
+import {
+  FizzBuzz,
+  FizzBuzzType01,
+  FizzBuzzType02,
+  FizzBuzzType03,
+} from "./fizzBuzz";
 
 describe("FizzBuzz", () => {
   describe("タイプ1の場合", () => {
-    let fizzBuzz: FizzBuzz;
+    let fizzBuzz: FizzBuzzType01;
     beforeEach(() => {
-      fizzBuzz = new FizzBuzz();
+      fizzBuzz = FizzBuzz.create(1);
     });
     describe("三の倍数の場合", () => {
       it("3を渡したら文字列Fizzを返す", () => {
@@ -33,6 +38,7 @@ describe("FizzBuzz", () => {
     describe("1から100までの数の配列を返す", () => {
       let result: string[];
       beforeEach(() => {
+        const fizzBuzz = new FizzBuzz();
         fizzBuzz.generateList();
         result = fizzBuzz.list;
       });
@@ -52,9 +58,9 @@ describe("FizzBuzz", () => {
   });
 
   describe("タイプ2の場合", () => {
-    let fizzBuzz: FizzBuzz;
+    let fizzBuzz: FizzBuzzType02;
     beforeEach(() => {
-      fizzBuzz = new FizzBuzz(2);
+      fizzBuzz = FizzBuzz.create(2);
     });
     describe("三の倍数の場合", () => {
       it("3を渡したら文字列3を返す", () => {
@@ -80,9 +86,9 @@ describe("FizzBuzz", () => {
   });
 
   describe("タイプ3の場合", () => {
-    let fizzBuzz: FizzBuzz;
+    let fizzBuzz: FizzBuzzType03;
     beforeEach(() => {
-      fizzBuzz = new FizzBuzz(3);
+      fizzBuzz = FizzBuzz.create(3);
     });
     describe("三の倍数の場合", () => {
       it("3を渡したら文字列3を返す", () => {
@@ -108,15 +114,8 @@ describe("FizzBuzz", () => {
   });
 
   describe("それ以外のタイプの場合", () => {
-    let fizzBuzz: FizzBuzz;
-    beforeEach(() => {
-      fizzBuzz = new FizzBuzz(99);
-    });
-
     it("例外を発生する", () => {
-      expect(() => fizzBuzz.generate(1)).toThrow(
-        "該当するタイプは存在しません"
-      );
+      expect(() => FizzBuzz.create(99)).toThrow("該当するタイプは存在しません");
     });
   });
 });

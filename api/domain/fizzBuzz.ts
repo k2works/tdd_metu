@@ -20,17 +20,14 @@ export class FizzBuzz {
     return this._type;
   }
 
-  public static create(type: number) {
+  public static create(type: number): any {
     switch (type) {
       case 1:
-        new FizzBuzzType01();
-        break;
+        return new FizzBuzzType01();
       case 2:
-        new FizzBuzzType02();
-        break;
+        return new FizzBuzzType02();
       case 3:
-        new FizzBuzzType03();
-        break;
+        return new FizzBuzzType03();
       default:
         throw "該当するタイプは存在しません";
     }
@@ -64,8 +61,8 @@ export class FizzBuzz {
   }
 }
 
-class FizzBuzzType01 {
-  generate(n: number) {
+export class FizzBuzzType01 {
+  generate(n: number): string {
     const isFizzBuzz = n % 3 === 0 && n % 5 === 0;
     const isFizz = n % 3 === 0;
     const isBuzz = n % 5 === 0;
@@ -77,13 +74,13 @@ class FizzBuzzType01 {
     return n.toString();
   }
 }
-class FizzBuzzType02 {
-  generate(n: number) {
+export class FizzBuzzType02 {
+  generate(n: number): string {
     return n.toString();
   }
 }
-class FizzBuzzType03 {
-  generate(n: number) {
+export class FizzBuzzType03 {
+  generate(n: number): string {
     const isFizzBuzz = n % 3 === 0 && n % 5 === 0;
 
     if (isFizzBuzz) return `${FizzBuzz.FIZZ}${FizzBuzz.BUZZ}`;
