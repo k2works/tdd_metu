@@ -12,7 +12,7 @@ export class App {
             .map((i) => (i == 0 ? 0 : i * 10))
             .map((j) =>
               [...Array(10).keys()]
-                .map((k) => `<td>${list[k + j]}</td>`)
+                .map((k) => `<td>${list[k + j]._value}</td>`)
                 .join("")
             );
 

@@ -4,6 +4,7 @@ import {
   FizzBuzzType01,
   FizzBuzzType02,
   FizzBuzzType03,
+  FizzBuzzValue,
 } from "./fizzBuzz";
 
 describe("FizzBuzz", () => {
@@ -14,46 +15,46 @@ describe("FizzBuzz", () => {
     });
     describe("三の倍数の場合", () => {
       it("3を渡したら文字列Fizzを返す", () => {
-        expect(fizzBuzz.generate(3)).toEqual("Fizz");
+        expect(fizzBuzz.generate(3).value).toEqual("Fizz");
       });
     });
     describe("五の倍数の場合", () => {
       it("5を渡したら文字列Buzzを返す", () => {
-        expect(fizzBuzz.generate(5)).toEqual("Buzz");
+        expect(fizzBuzz.generate(5).value).toEqual("Buzz");
       });
     });
     describe("三と五の倍数の場合", () => {
       it("15を渡したら文字列FizzBuzzを返す", () => {
-        expect(fizzBuzz.generate(15)).toEqual("FizzBuzz");
+        expect(fizzBuzz.generate(15).value).toEqual("FizzBuzz");
       });
     });
     describe("その他の場合", () => {
       it("1を渡したら文字列1を返す", () => {
-        expect(fizzBuzz.generate(1)).toEqual("1");
+        expect(fizzBuzz.generate(1).value).toEqual("1");
       });
       it("2を渡したら文字列2を返す", () => {
-        expect(fizzBuzz.generate(2)).toEqual("2");
+        expect(fizzBuzz.generate(2).value).toEqual("2");
       });
     });
 
     describe("1から100までの数の配列を返す", () => {
-      let result: string[];
+      let result: FizzBuzzValue[];
       beforeEach(() => {
         const fizzBuzz = new FizzBuzz(new FizzBuzzType01());
         fizzBuzz.generateList();
         result = fizzBuzz.list;
       });
       it("配列の初めは文字列の1を返す", () => {
-        expect(result[0]).toEqual("1");
+        expect(result[0].value).toEqual("1");
       });
       it("配列の最後は文字列のBuzzを返す", () => {
-        expect(result[result.length - 1]).toEqual("Buzz");
+        expect(result[result.length - 1].value).toEqual("Buzz");
       });
       it("配列の4番目は文字列のBuzzを返す", () => {
-        expect(result[4]).toEqual("Buzz");
+        expect(result[4].value).toEqual("Buzz");
       });
       it("配列の14番目は文字列のFizzBuzzを返す", () => {
-        expect(result[14]).toEqual("FizzBuzz");
+        expect(result[14].value).toEqual("FizzBuzz");
       });
     });
   });
@@ -65,23 +66,23 @@ describe("FizzBuzz", () => {
     });
     describe("三の倍数の場合", () => {
       it("3を渡したら文字列3を返す", () => {
-        expect(fizzBuzz.generate(3)).toEqual("3");
+        expect(fizzBuzz.generate(3).value).toEqual("3");
       });
     });
 
     describe("五の倍数の場合", () => {
       it("5を渡したら文字列5を返す", () => {
-        expect(fizzBuzz.generate(5)).toEqual("5");
+        expect(fizzBuzz.generate(5).value).toEqual("5");
       });
     });
     describe("三と五の倍数の場合", () => {
       it("15を渡したら文字列15を返す", () => {
-        expect(fizzBuzz.generate(15)).toEqual("15");
+        expect(fizzBuzz.generate(15).value).toEqual("15");
       });
     });
     describe("その他の場合", () => {
       it("1を渡したら文字列1を返す", () => {
-        expect(fizzBuzz.generate(1)).toEqual("1");
+        expect(fizzBuzz.generate(1).value).toEqual("1");
       });
     });
   });
@@ -93,23 +94,23 @@ describe("FizzBuzz", () => {
     });
     describe("三の倍数の場合", () => {
       it("3を渡したら文字列3を返す", () => {
-        expect(fizzBuzz.generate(3)).toEqual("3");
+        expect(fizzBuzz.generate(3).value).toEqual("3");
       });
     });
 
     describe("五の倍数の場合", () => {
       it("5を渡したら文字列5を返す", () => {
-        expect(fizzBuzz.generate(5)).toEqual("5");
+        expect(fizzBuzz.generate(5).value).toEqual("5");
       });
     });
     describe("三と五の倍数の場合", () => {
       it("15を渡したら文字列FizzBuzzを返す", () => {
-        expect(fizzBuzz.generate(15)).toEqual("FizzBuzz");
+        expect(fizzBuzz.generate(15).value).toEqual("FizzBuzz");
       });
     });
     describe("その他の場合", () => {
       it("1を渡したら文字列1を返す", () => {
-        expect(fizzBuzz.generate(1)).toEqual("1");
+        expect(fizzBuzz.generate(1).value).toEqual("1");
       });
     });
   });

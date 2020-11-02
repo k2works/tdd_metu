@@ -77,10 +77,16 @@ class FizzBuzzType02 {
 }
 class FizzBuzzType03 {
 }
+class FizzBuzzValue {
+  number: number
+  value: string
+  equals()
+}
 FizzBuzz *- FizzBuzzType
 FizzBuzzType <|-- FizzBuzzType01
 FizzBuzzType <|-- FizzBuzzType02
 FizzBuzzType <|-- FizzBuzzType03
+FizzBuzzType -> FizzBuzzValue
 `;
 
 const erd = `

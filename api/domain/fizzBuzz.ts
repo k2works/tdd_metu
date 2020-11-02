@@ -4,7 +4,7 @@ export class FizzBuzz {
   static MAX_NUMBER = 100;
   static FIZZ = "Fizz";
   static BUZZ = "Buzz";
-  private _list: string[];
+  private _list: FizzBuzzValue[];
   private _type: FizzBuzzType;
 
   constructor(type: FizzBuzzType) {
@@ -20,7 +20,7 @@ export class FizzBuzz {
     return this._type;
   }
 
-  generate(n: number): string {
+  generate(n: number): FizzBuzzValue {
     return this._type.generate(n);
   }
 
@@ -59,27 +59,48 @@ export abstract class FizzBuzzType {
     }
   }
 
-  abstract generate(n: number): string;
+  abstract generate(n: number): FizzBuzzValue;
 }
 
 export class FizzBuzzType01 extends FizzBuzzType {
-  generate(n: number): string {
-    if (this.isFizzBuzz(n)) return `${FizzBuzz.FIZZ}${FizzBuzz.BUZZ}`;
-    if (this.isFizz(n)) return FizzBuzz.FIZZ;
-    if (this.isBuzz(n)) return FizzBuzz.BUZZ;
+  generate(n: number): FizzBuzzValue {
+    if (this.isFizzBuzz(n))
+      return new FizzBuzzValue(n, `${FizzBuzz.FIZZ}${FizzBuzz.BUZZ}`);
+    if (this.isFizz(n)) return new FizzBuzzValue(n, FizzBuzz.FIZZ);
+    if (this.isBuzz(n)) return new FizzBuzzValue(n, FizzBuzz.BUZZ);
 
-    return n.toString();
+    return new FizzBuzzValue(n, n.toString());
   }
 }
 export class FizzBuzzType02 extends FizzBuzzType {
-  generate(n: number): string {
-    return n.toString();
+  generate(n: number): FizzBuzzValue {
+    return new FizzBuzzValue(n, n.toString());
   }
 }
 export class FizzBuzzType03 extends FizzBuzzType {
-  generate(n: number): string {
-    if (this.isFizzBuzz(n)) return `${FizzBuzz.FIZZ}${FizzBuzz.BUZZ}`;
+  generate(n: number): FizzBuzzValue {
+    if (this.isFizzBuzz(n))
+      return new FizzBuzzValue(n, `${FizzBuzz.FIZZ}${FizzBuzz.BUZZ}`);
 
-    return n.toString();
+    return new FizzBuzzValue(n, n.toString());
+  }
+}
+
+export class FizzBuzzValue {
+  private _number: number;
+  private _value: string;
+
+  constructor(n: number, value: string) {
+    this._number = n;
+    this._value = value;
+  }
+  public get number() {
+    return this._number;
+  }
+  public get value() {
+    return this._value;
+  }
+  equals(other: FizzBuzzValue) {
+    return this.number === other.number && this.value === other.value;
   }
 }
