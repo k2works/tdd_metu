@@ -86,9 +86,18 @@ class FizzBuzzList {
   value: FizzBuzzValue[]
   equals()
 }
+interface FizzBuzzCommand {
+  execute()
+}
+class FizzBuzzValueCommand {
+  type: FizzBuzzType
+  execute()
+}
 FizzBuzz *- FizzBuzzList
 FizzBuzz *-- FizzBuzzType
 FizzBuzzList *- FizzBuzzValue
+FizzBuzzCommand <|-- FizzBuzzValueCommand
+FizzBuzzValueCommand *- FizzBuzzType
 FizzBuzzType <|-- FizzBuzzType01
 FizzBuzzType <|-- FizzBuzzType02
 FizzBuzzType <|-- FizzBuzzType03

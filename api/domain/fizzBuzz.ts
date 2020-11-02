@@ -124,3 +124,18 @@ export class FizzBuzzList {
     return new FizzBuzzList(this._value.concat(value));
   }
 }
+
+export interface FizzBuzzCommand {
+  execute(n: number): string;
+}
+
+export class FizzBuzzValueCommand implements FizzBuzzCommand {
+  private _type: FizzBuzzType;
+
+  constructor(type: FizzBuzzType) {
+    this._type = type;
+  }
+  execute(n: number): string {
+    return this._type.generate(n).value;
+  }
+}

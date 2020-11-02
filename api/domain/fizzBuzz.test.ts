@@ -1,40 +1,42 @@
 import {
   FizzBuzz,
+  FizzBuzzCommand,
   FizzBuzzList,
   FizzBuzzType,
   FizzBuzzType01,
   FizzBuzzType02,
   FizzBuzzType03,
   FizzBuzzValue,
+  FizzBuzzValueCommand,
 } from "./fizzBuzz";
 
 describe("FizzBuzz", () => {
   describe("タイプ1の場合", () => {
-    let fizzBuzz: FizzBuzz;
+    let fizzBuzz: FizzBuzzCommand;
     beforeEach(() => {
-      fizzBuzz = new FizzBuzz(new FizzBuzzType01());
+      fizzBuzz = new FizzBuzzValueCommand(new FizzBuzzType01());
     });
     describe("三の倍数の場合", () => {
       it("3を渡したら文字列Fizzを返す", () => {
-        expect(fizzBuzz.generate(3).value).toEqual("Fizz");
+        expect(fizzBuzz.execute(3)).toEqual("Fizz");
       });
     });
     describe("五の倍数の場合", () => {
       it("5を渡したら文字列Buzzを返す", () => {
-        expect(fizzBuzz.generate(5).value).toEqual("Buzz");
+        expect(fizzBuzz.execute(5)).toEqual("Buzz");
       });
     });
     describe("三と五の倍数の場合", () => {
       it("15を渡したら文字列FizzBuzzを返す", () => {
-        expect(fizzBuzz.generate(15).value).toEqual("FizzBuzz");
+        expect(fizzBuzz.execute(15)).toEqual("FizzBuzz");
       });
     });
     describe("その他の場合", () => {
       it("1を渡したら文字列1を返す", () => {
-        expect(fizzBuzz.generate(1).value).toEqual("1");
+        expect(fizzBuzz.execute(1)).toEqual("1");
       });
       it("2を渡したら文字列2を返す", () => {
-        expect(fizzBuzz.generate(2).value).toEqual("2");
+        expect(fizzBuzz.execute(2)).toEqual("2");
       });
     });
 
@@ -61,57 +63,57 @@ describe("FizzBuzz", () => {
   });
 
   describe("タイプ2の場合", () => {
-    let fizzBuzz: FizzBuzz;
+    let fizzBuzz: FizzBuzzCommand;
     beforeEach(() => {
-      fizzBuzz = new FizzBuzz(new FizzBuzzType02());
+      fizzBuzz = new FizzBuzzValueCommand(new FizzBuzzType02());
     });
     describe("三の倍数の場合", () => {
       it("3を渡したら文字列3を返す", () => {
-        expect(fizzBuzz.generate(3).value).toEqual("3");
+        expect(fizzBuzz.execute(3)).toEqual("3");
       });
     });
 
     describe("五の倍数の場合", () => {
       it("5を渡したら文字列5を返す", () => {
-        expect(fizzBuzz.generate(5).value).toEqual("5");
+        expect(fizzBuzz.execute(5)).toEqual("5");
       });
     });
     describe("三と五の倍数の場合", () => {
       it("15を渡したら文字列15を返す", () => {
-        expect(fizzBuzz.generate(15).value).toEqual("15");
+        expect(fizzBuzz.execute(15)).toEqual("15");
       });
     });
     describe("その他の場合", () => {
       it("1を渡したら文字列1を返す", () => {
-        expect(fizzBuzz.generate(1).value).toEqual("1");
+        expect(fizzBuzz.execute(1)).toEqual("1");
       });
     });
   });
 
   describe("タイプ3の場合", () => {
-    let fizzBuzz: FizzBuzz;
+    let fizzBuzz: FizzBuzzCommand;
     beforeEach(() => {
-      fizzBuzz = new FizzBuzz(new FizzBuzzType03());
+      fizzBuzz = new FizzBuzzValueCommand(new FizzBuzzType03());
     });
     describe("三の倍数の場合", () => {
       it("3を渡したら文字列3を返す", () => {
-        expect(fizzBuzz.generate(3).value).toEqual("3");
+        expect(fizzBuzz.execute(3)).toEqual("3");
       });
     });
 
     describe("五の倍数の場合", () => {
       it("5を渡したら文字列5を返す", () => {
-        expect(fizzBuzz.generate(5).value).toEqual("5");
+        expect(fizzBuzz.execute(5)).toEqual("5");
       });
     });
     describe("三と五の倍数の場合", () => {
       it("15を渡したら文字列FizzBuzzを返す", () => {
-        expect(fizzBuzz.generate(15).value).toEqual("FizzBuzz");
+        expect(fizzBuzz.execute(15)).toEqual("FizzBuzz");
       });
     });
     describe("その他の場合", () => {
       it("1を渡したら文字列1を返す", () => {
-        expect(fizzBuzz.generate(1).value).toEqual("1");
+        expect(fizzBuzz.execute(1)).toEqual("1");
       });
     });
   });
