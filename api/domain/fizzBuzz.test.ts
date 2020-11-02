@@ -67,7 +67,7 @@ describe("FizzBuzz", () => {
       });
     });
     describe("三と五の倍数の場合", () => {
-      it("15を渡したら文字列FizzBuzzを返す", () => {
+      it("15を渡したら文字列15を返す", () => {
         expect(fizzBuzz.generate(15, 2)).toEqual("15");
       });
     });
@@ -78,5 +78,31 @@ describe("FizzBuzz", () => {
     });
   });
 
-  describe("タイプ3の場合", () => {});
+  describe("タイプ3の場合", () => {
+    let fizzBuzz: FizzBuzz;
+    beforeEach(() => {
+      fizzBuzz = new FizzBuzz();
+    });
+    describe("三の倍数の場合", () => {
+      it("3を渡したら文字列3を返す", () => {
+        expect(fizzBuzz.generate(3, 3)).toEqual("3");
+      });
+    });
+
+    describe("五の倍数の場合", () => {
+      it("5を渡したら文字列5を返す", () => {
+        expect(fizzBuzz.generate(5, 3)).toEqual("5");
+      });
+    });
+    describe("三と五の倍数の場合", () => {
+      it("15を渡したら文字列FizzBuzzを返す", () => {
+        expect(fizzBuzz.generate(15, 3)).toEqual("FizzBuzz");
+      });
+    });
+    describe("その他の場合", () => {
+      it("1を渡したら文字列1を返す", () => {
+        expect(fizzBuzz.generate(1, 3)).toEqual("1");
+      });
+    });
+  });
 });

@@ -19,6 +19,11 @@ export class FizzBuzz {
         return n.toString();
       case 2:
         return n.toString();
+      case 3:
+        if (n % 3 === 0 && n % 5 === 0)
+          return `${FizzBuzz.FIZZ}${FizzBuzz.BUZZ}`;
+
+        return n.toString();
       default:
         return "";
     }
