@@ -56,6 +56,8 @@ class FizzBuzz {
   MAX_NUMBER = 100
   FIZZ = Fizz
   BUZZ = Buzz
+  list
+  type
   static generate(number)
   static generateList()
 }
