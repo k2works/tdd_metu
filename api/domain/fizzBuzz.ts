@@ -1,11 +1,11 @@
 import { range } from "./utilities";
 
 export abstract class FizzBuzzType {
-  static FIZZ = "Fizz";
-  static BUZZ = "Buzz";
   static TYPE_01 = 1;
   static TYPE_02 = 2;
   static TYPE_03 = 3;
+  static FIZZ = "Fizz";
+  static BUZZ = "Buzz";
 
   isFizz(n: number) {
     return n % 3 === 0;

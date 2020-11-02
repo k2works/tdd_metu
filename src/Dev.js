@@ -56,6 +56,8 @@ abstract FizzBuzzType {
   TYPE_01 = 1
   TYPE_02 = 2
   TYPE_03 = 3
+  FIZZ = "Fizz";
+  BUZZ = "Buzz";
   isFizz(number)
   isBuzz(number)
   isFizzBuzz(number)
@@ -74,6 +76,7 @@ class FizzBuzzValue {
   equals(other)
 }
 class FizzBuzzList {
+  MAX_NUMBER = 100
   value: FizzBuzzValue[]
   equals(other)
 }
