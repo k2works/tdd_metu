@@ -1,9 +1,6 @@
 import { range } from "./utilities";
 
 export class FizzBuzz {
-  static MAX_NUMBER = 100;
-  static FIZZ = "Fizz";
-  static BUZZ = "Buzz";
   private _list: FizzBuzzList;
   private _type: FizzBuzzType;
 
@@ -26,12 +23,14 @@ export class FizzBuzz {
 
   generateList(): void {
     this._list = this._list.add(
-      range(1, FizzBuzz.MAX_NUMBER).map((i) => this._type.generate(i))
+      range(1, FizzBuzzList.MAX_NUMBER).map((i) => this._type.generate(i))
     );
   }
 }
 
 export abstract class FizzBuzzType {
+  static FIZZ = "Fizz";
+  static BUZZ = "Buzz";
   static TYPE_01 = 1;
   static TYPE_02 = 2;
   static TYPE_03 = 3;
@@ -65,9 +64,9 @@ export abstract class FizzBuzzType {
 export class FizzBuzzType01 extends FizzBuzzType {
   generate(n: number): FizzBuzzValue {
     if (this.isFizzBuzz(n))
-      return new FizzBuzzValue(n, `${FizzBuzz.FIZZ}${FizzBuzz.BUZZ}`);
-    if (this.isFizz(n)) return new FizzBuzzValue(n, FizzBuzz.FIZZ);
-    if (this.isBuzz(n)) return new FizzBuzzValue(n, FizzBuzz.BUZZ);
+      return new FizzBuzzValue(n, `${FizzBuzzType.FIZZ}${FizzBuzzType.BUZZ}`);
+    if (this.isFizz(n)) return new FizzBuzzValue(n, FizzBuzzType.FIZZ);
+    if (this.isBuzz(n)) return new FizzBuzzValue(n, FizzBuzzType.BUZZ);
 
     return new FizzBuzzValue(n, n.toString());
   }
@@ -80,7 +79,7 @@ export class FizzBuzzType02 extends FizzBuzzType {
 export class FizzBuzzType03 extends FizzBuzzType {
   generate(n: number): FizzBuzzValue {
     if (this.isFizzBuzz(n))
-      return new FizzBuzzValue(n, `${FizzBuzz.FIZZ}${FizzBuzz.BUZZ}`);
+      return new FizzBuzzValue(n, `${FizzBuzzType.FIZZ}${FizzBuzzType.BUZZ}`);
 
     return new FizzBuzzValue(n, n.toString());
   }
@@ -106,6 +105,8 @@ export class FizzBuzzValue {
 }
 
 export class FizzBuzzList {
+  static MAX_NUMBER = 100;
+
   private _value: FizzBuzzValue[];
 
   constructor(list: FizzBuzzValue[]) {
