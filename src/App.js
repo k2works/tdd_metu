@@ -3,14 +3,14 @@ export class App {
     const apiUrl = params.apiUrl;
     this._apiUrl = apiUrl;
     this.select();
-    this.loading(apiUrl, this.callBack);
+    this.loading(apiUrl, this.table);
   }
 
   select() {
     const changeEvent = (e) => {
       const number = e.target.value;
       const apiUrl = `${this._apiUrl}/select?number=${number}`;
-      this.loading(apiUrl, this.callBack);
+      this.loading(apiUrl, this.table);
     };
 
     const contents = `
@@ -26,7 +26,7 @@ export class App {
       .addEventListener("change", changeEvent);
   }
 
-  callBack(list) {
+  table(list) {
     const table = (() => {
       const header = [...Array(10).keys()]
         .map((i) => `<td>${i + 1}</td>`)
@@ -66,10 +66,10 @@ export class App {
     document.getElementById("app-table").innerHTML = contents;
   }
 
-  loading(apiUrl, callBack) {
+  loading(apiUrl, table) {
     fetch(apiUrl)
       .then((response) => response.json())
-      .then((data) => callBack(data))
+      .then((data) => table(data))
       .catch((error) => console.error(error));
   }
 }
