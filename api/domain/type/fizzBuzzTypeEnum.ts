@@ -4,9 +4,9 @@ import { FizzBuzzType03 } from "./fizzBuzzType03";
 import { FizzBuzzTypeNotDefined } from "./fizzBuzzTypeNotDefined";
 
 export enum FizzBuzzType {
-  Type01,
-  Type02,
-  Type03,
+  Type01 = 1,
+  Type02 = 2,
+  Type03 = 3,
 }
 export namespace FizzBuzzTypeEnum {
   export function valueOf(value: FizzBuzzType) {
