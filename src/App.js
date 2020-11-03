@@ -2,8 +2,12 @@ export class App {
   constructor(params) {
     const apiUrl = params.apiUrl;
     this._apiUrl = apiUrl;
+    this.render();
+  }
+
+  render() {
     this.select();
-    this.loading(apiUrl, this.table);
+    this.loading(this._apiUrl, this.table);
   }
 
   select() {
