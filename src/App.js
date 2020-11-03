@@ -5,22 +5,22 @@ export class App {
   }
 
   render() {
-    this.select();
-    this.loading(this._apiUrl, this.table);
+    this.renderSelect();
+    this.loading(this._apiUrl, this.renderTable);
   }
 
-  loading(apiUrl, table) {
+  loading(apiUrl, renderTable) {
     fetch(apiUrl)
       .then((response) => response.json())
-      .then((data) => table(data))
+      .then((data) => renderTable(data))
       .catch((error) => console.error(error));
   }
 
-  select() {
+  renderSelect() {
     const changeEvent = (e) => {
       const number = e.target.value;
       const apiUrl = `${this._apiUrl}/select?number=${number}`;
-      this.loading(apiUrl, this.table);
+      this.loading(apiUrl, this.renderTable);
     };
 
     const contents = `
@@ -36,7 +36,7 @@ export class App {
       .addEventListener("change", changeEvent);
   }
 
-  table(list) {
+  renderTable(list) {
     const table = (() => {
       const header = [...Array(10).keys()]
         .map((i) => `<td>${i + 1}</td>`)
