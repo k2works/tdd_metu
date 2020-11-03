@@ -1,13 +1,12 @@
-import { FizzBuzzCommand } from "../application/fizzBuzzCommand";
-import { FizzBuzzListCommand } from "../application/fizzBuzzListCommand";
-import { FizzBuzzValueCommand } from "../application/fizzBuzzValueCommand";
-import { FizzBuzzValue } from "./model/fizzBuzzValue";
-import { FizzBuzzType01 } from "./type/fizzBuzzType01";
-import { FizzBuzzType02 } from "./type/fizzBuzzType02";
-import { FizzBuzzType03 } from "./type/fizzBuzzType03";
-import { FizzBuzzType, FizzBuzzTypeEnum } from "./type/fizzBuzzTypeEnum";
+import { FizzBuzzCommand } from "../../../api/application/fizzBuzzCommand";
+import { FizzBuzzValueCommand } from "../../../api/application/fizzBuzzValueCommand";
+import { FizzBuzzType } from "../../../api/domain/type/fizzBuzzTypeEnum";
+import { FizzBuzzType01 } from "../../../api/domain/type/fizzBuzzType01";
+import { FizzBuzzType02 } from "../../../api/domain/type/fizzBuzzType02";
+import { FizzBuzzType03 } from "../../../api/domain/type/fizzBuzzType03";
+import { FizzBuzzTypeEnum } from "../../../api/domain/type/fizzBuzzTypeEnum";
 
-describe("FizzBuzz", () => {
+describe("FizzBuzzValueCommand", () => {
   describe("タイプ1の場合", () => {
     let fizzBuzz: FizzBuzzCommand;
     beforeEach(() => {
@@ -34,26 +33,6 @@ describe("FizzBuzz", () => {
       });
       it("2を渡したら文字列2を返す", () => {
         expect(fizzBuzz.execute(2)).toEqual("2");
-      });
-    });
-
-    describe("1から100までの数の配列を返す", () => {
-      let result: FizzBuzzValue[];
-      beforeEach(() => {
-        const fizzBuzz = new FizzBuzzListCommand(new FizzBuzzType01());
-        result = fizzBuzz.execute(100);
-      });
-      it("配列の初めは文字列の1を返す", () => {
-        expect(result[0].value).toEqual("1");
-      });
-      it("配列の最後は文字列のBuzzを返す", () => {
-        expect(result[result.length - 1].value).toEqual("Buzz");
-      });
-      it("配列の4番目は文字列のBuzzを返す", () => {
-        expect(result[4].value).toEqual("Buzz");
-      });
-      it("配列の14番目は文字列のFizzBuzzを返す", () => {
-        expect(result[14].value).toEqual("FizzBuzz");
       });
     });
   });
@@ -128,13 +107,6 @@ describe("FizzBuzz", () => {
         FizzBuzzTypeEnum.valueOf(FizzBuzzType.Type01)
       );
       expect(() => command.execute(-1)).toThrow("値は正のみ");
-    });
-
-    it("100より多い数を許可しない", () => {
-      const command = new FizzBuzzListCommand(
-        FizzBuzzTypeEnum.valueOf(FizzBuzzType.Type01)
-      );
-      expect(() => command.execute(101)).toThrow("最大値は100");
     });
   });
 });
