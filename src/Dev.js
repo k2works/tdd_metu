@@ -52,47 +52,43 @@ const contents = `
 `;
 
 const uml = `
-abstract FizzBuzzType {
-  TYPE_01 = 1
-  TYPE_02 = 2
-  TYPE_03 = 3
-  FIZZ = "Fizz";
-  BUZZ = "Buzz";
-  isFizz(number)
-  isBuzz(number)
-  isFizzBuzz(number)
-  {static} create(type)
-  {abstract} generate(number)
+package "api" {
+  package "Application" {
+    interface FizzBuzzCommand {
+    }
+    class FizzBuzzValueCommand {
+    }
+    class FizzBuzzListCommand {
+    }
+  }
+  package "Domain" {
+    package "Model" {
+      class FizzBuzzValue {
+      }
+      class FizzBuzzList {
+      }
+    }
+    package "Type" {
+      class FizzBuzzType {
+      }
+      class FizzBuzzType01 {
+      }
+      class FizzBuzzType02 {
+      }
+      class FizzBuzzType03 {
+      }
+      class FizzBuzzTypeNotDefined {
+      }
+      enum FizzBuzzTypeEnum {
+      }
+    }
+  }
 }
-class FizzBuzzType01 {
-}
-class FizzBuzzType02 {
-}
-class FizzBuzzType03 {
-}
-class FizzBuzzTypeNotDefined {
-  toString()
-}
-class FizzBuzzValue {
-  number: number
-  value: string
-  equals(other)
-}
-class FizzBuzzList {
-  MAX_NUMBER = 100
-  value: FizzBuzzValue[]
-  equals(other)
-}
-interface FizzBuzzCommand {
-  execute(number)
-}
-class FizzBuzzValueCommand {
-  type: FizzBuzzType
-  execute(number)
-}
-class FizzBuzzListCommand {
-  type: FizzBuzzType
-  execute(number)
+package "test" {
+  class FizzBuzzValueCommandTest {
+  }
+  class FizzBuzzListCommandTest {
+  }
 }
 FizzBuzzType <|-- FizzBuzzType01
 FizzBuzzType <|-- FizzBuzzType02
@@ -106,7 +102,8 @@ FizzBuzzList *- FizzBuzzValue
 FizzBuzzCommand <|-- FizzBuzzValueCommand
 FizzBuzzCommand <|-- FizzBuzzListCommand
 FizzBuzzListCommand --> FizzBuzzList
-FizzBuzzCommand *- FizzBuzzType
+FizzBuzzType <- FizzBuzzTypeEnum
+FizzBuzzTypeEnum <- FizzBuzzCommand
 `;
 
 const erd = `
