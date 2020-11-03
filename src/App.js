@@ -1,7 +1,6 @@
 export class App {
   constructor(params) {
-    const apiUrl = params.apiUrl;
-    this._apiUrl = apiUrl;
+    this._apiUrl = params.apiUrl;
     this.render();
   }
 
