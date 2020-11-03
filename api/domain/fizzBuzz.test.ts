@@ -2,12 +2,10 @@ import { FizzBuzzCommand } from "../application/fizzBuzzCommand";
 import { FizzBuzzListCommand } from "../application/fizzBuzzListCommand";
 import { FizzBuzzValueCommand } from "../application/fizzBuzzValueCommand";
 import { FizzBuzzValue } from "./model/fizzBuzzValue";
-import {
-  FizzBuzzType,
-  FizzBuzzType01,
-  FizzBuzzType02,
-  FizzBuzzType03,
-} from "./type/fizzBuzzType";
+import { FizzBuzzType01 } from "./type/fizzBuzzType01";
+import { FizzBuzzType02 } from "./type/fizzBuzzType02";
+import { FizzBuzzType03 } from "./type/fizzBuzzType03";
+import { FizzBuzzType, FizzBuzzTypeEnum } from "./type/fizzBuzzTypeEnum";
 
 describe("FizzBuzz", () => {
   describe("タイプ1の場合", () => {
@@ -118,7 +116,7 @@ describe("FizzBuzz", () => {
 
   describe("それ以外のタイプの場合", () => {
     it("未定義のタイプを返す", () => {
-      const fizzBuzz = FizzBuzzType.create(99);
+      const fizzBuzz = FizzBuzzTypeEnum.valueOf(99);
 
       expect(fizzBuzz.toString()).toEqual("未定義");
     });
@@ -127,14 +125,14 @@ describe("FizzBuzz", () => {
   describe("例外ケース", () => {
     it("値は正の値のみ許可する", () => {
       const command = new FizzBuzzValueCommand(
-        FizzBuzzType.create(FizzBuzzType.TYPE_01)
+        FizzBuzzTypeEnum.valueOf(FizzBuzzType.Type01)
       );
       expect(() => command.execute(-1)).toThrow("値は正のみ");
     });
 
     it("100より多い数を許可しない", () => {
       const command = new FizzBuzzListCommand(
-        FizzBuzzType.create(FizzBuzzType.TYPE_01)
+        FizzBuzzTypeEnum.valueOf(FizzBuzzType.Type01)
       );
       expect(() => command.execute(101)).toThrow("最大値は100");
     });
