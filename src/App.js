@@ -10,6 +10,13 @@ export class App {
     this.loading(this._apiUrl, this.table);
   }
 
+  loading(apiUrl, table) {
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => table(data))
+      .catch((error) => console.error(error));
+  }
+
   select() {
     const changeEvent = (e) => {
       const number = e.target.value;
@@ -68,12 +75,5 @@ export class App {
 
     const contents = `<div>${table}</div>`;
     document.getElementById("app-table").innerHTML = contents;
-  }
-
-  loading(apiUrl, table) {
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => table(data))
-      .catch((error) => console.error(error));
   }
 }
