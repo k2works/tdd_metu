@@ -1,14 +1,13 @@
+import { FizzBuzzCommand } from "../application/fizzBuzzCommand";
+import { FizzBuzzListCommand } from "../application/fizzBuzzListCommand";
+import { FizzBuzzValueCommand } from "../application/fizzBuzzValueCommand";
+import { FizzBuzzValue } from "./model/fizzBuzzValue";
 import {
-  FizzBuzzCommand,
-  FizzBuzzList,
-  FizzBuzzListCommand,
   FizzBuzzType,
   FizzBuzzType01,
   FizzBuzzType02,
   FizzBuzzType03,
-  FizzBuzzValue,
-  FizzBuzzValueCommand,
-} from "./fizzBuzz";
+} from "./type/fizzBuzzType";
 
 describe("FizzBuzz", () => {
   describe("タイプ1の場合", () => {

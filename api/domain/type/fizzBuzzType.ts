@@ -1,4 +1,4 @@
-import { range } from "./utilities";
+import { FizzBuzzValue } from "../model/fizzBuzzValue";
 
 export abstract class FizzBuzzType {
   static TYPE_01 = 1;
@@ -43,11 +43,13 @@ export class FizzBuzzType01 extends FizzBuzzType {
     return new FizzBuzzValue(n, n.toString());
   }
 }
+
 export class FizzBuzzType02 extends FizzBuzzType {
   generate(n: number): FizzBuzzValue {
     return new FizzBuzzValue(n, n.toString());
   }
 }
+
 export class FizzBuzzType03 extends FizzBuzzType {
   generate(n: number): FizzBuzzValue {
     if (this.isFizzBuzz(n))
@@ -64,76 +66,5 @@ export class FizzBuzzTypeNotDefined extends FizzBuzzType {
 
   toString(): string {
     return "未定義";
-  }
-}
-
-export class FizzBuzzValue {
-  private _number: number;
-  private _value: string;
-
-  constructor(n: number, value: string) {
-    if (n < 0) throw "値は正のみ";
-    this._number = n;
-    this._value = value;
-  }
-  public get number() {
-    return this._number;
-  }
-  public get value() {
-    return this._value;
-  }
-  equals(other: FizzBuzzValue) {
-    return this.number === other.number && this.value === other.value;
-  }
-}
-
-export class FizzBuzzList {
-  static MAX_NUMBER = 100;
-
-  private _value: FizzBuzzValue[];
-
-  constructor(list: FizzBuzzValue[]) {
-    if (list.length > FizzBuzzList.MAX_NUMBER)
-      throw `最大値は${FizzBuzzList.MAX_NUMBER}`;
-    this._value = list;
-  }
-
-  public get value() {
-    return this._value;
-  }
-
-  toString(): string {
-    return this._value.toString();
-  }
-
-  add(value: FizzBuzzValue[]): FizzBuzzList {
-    return new FizzBuzzList(this._value.concat(value));
-  }
-}
-
-export interface FizzBuzzCommand {
-  execute(n: number): any;
-}
-
-export class FizzBuzzValueCommand implements FizzBuzzCommand {
-  private _type: FizzBuzzType;
-
-  constructor(type: FizzBuzzType) {
-    this._type = type;
-  }
-  execute(n: number): string {
-    return this._type.generate(n).value;
-  }
-}
-
-export class FizzBuzzListCommand implements FizzBuzzCommand {
-  private _type: FizzBuzzType;
-
-  constructor(type: FizzBuzzType) {
-    this._type = type;
-  }
-  execute(n: number): FizzBuzzValue[] {
-    const list = range(1, n).map((i) => this._type.generate(i));
-    return new FizzBuzzList(list).value;
   }
 }
