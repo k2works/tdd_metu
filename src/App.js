@@ -7,13 +7,13 @@ export class App {
   render() {
     this.renderCounter(1);
     this.renderSelect();
-    this.loading(this._apiUrl, this.renderTable);
+    this.loading();
   }
 
-  loading(apiUrl, renderTable) {
-    fetch(apiUrl)
+  loading() {
+    fetch(this._apiUrl)
       .then((response) => response.json())
-      .then((data) => renderTable(data))
+      .then((data) => this.renderTable(data))
       .catch((error) => console.error(error));
   }
 
