@@ -5,6 +5,7 @@ export class App {
   }
 
   render() {
+    this.renderCounter(0);
     this.renderSelect();
     this.loading(this._apiUrl, this.renderTable);
   }
@@ -14,6 +15,32 @@ export class App {
       .then((response) => response.json())
       .then((data) => renderTable(data))
       .catch((error) => console.error(error));
+  }
+
+  renderCounter(initial) {
+    let counter = initial;
+    const incrementEvent = (e) => {
+      counter = counter + 1;
+      document.getElementById("counter").value = counter;
+    };
+    const decrementEvent = (e) => {
+      if (counter === 0) return;
+      counter = counter - 1;
+      document.getElementById("counter").value = counter;
+    };
+
+    const contents = `
+      <input id="counter" disabled="true" value=${counter}>
+      <button id="increment">+</button>
+      <button id="decrement">-</button>
+    `;
+    document.getElementById("app-counter").innerHTML = contents;
+    document
+      .getElementById("increment")
+      .addEventListener("click", incrementEvent);
+    document
+      .getElementById("decrement")
+      .addEventListener("click", decrementEvent);
   }
 
   renderSelect() {
