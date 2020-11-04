@@ -5,7 +5,7 @@ export class App {
   }
 
   render() {
-    this.renderCounter(0);
+    this.renderCounter(1);
     this.renderSelect();
     this.loading(this._apiUrl, this.renderTable);
   }
@@ -17,16 +17,31 @@ export class App {
       .catch((error) => console.error(error));
   }
 
+  fetchCounter(counter) {
+    const apiUrl = `${this._apiUrl}/counter?number=${counter}`;
+    const fizzBuzzCounter = (resolve, reject) => {
+      fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => resolve(data.value))
+        .catch((error) => reject(error));
+    };
+    return new Promise(fizzBuzzCounter);
+  }
+
   renderCounter(initial) {
     let counter = initial;
     const incrementEvent = (e) => {
       counter = counter + 1;
-      document.getElementById("counter").value = counter;
+      this.fetchCounter(counter).then(
+        (data) => (document.getElementById("counter").value = data)
+      );
     };
     const decrementEvent = (e) => {
       if (counter === 0) return;
       counter = counter - 1;
-      document.getElementById("counter").value = counter;
+      this.fetchCounter(counter).then(
+        (data) => (document.getElementById("counter").value = data)
+      );
     };
 
     const contents = `
