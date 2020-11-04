@@ -7,14 +7,17 @@ export class App {
   render() {
     this.renderCounter(1);
     this.renderSelect();
-    this.loading();
+    this.fetchList().then((list) => this.renderTable(list));
   }
 
-  loading() {
-    fetch(this._apiUrl)
-      .then((response) => response.json())
-      .then((data) => this.renderTable(data))
-      .catch((error) => console.error(error));
+  fetchList() {
+    const fizzBuzzList = (resolve, reject) => {
+      fetch(this._apiUrl)
+        .then((response) => response.json())
+        .then((data) => resolve(data))
+        .catch((error) => reject(error));
+    };
+    return new Promise(fizzBuzzList);
   }
 
   fetchCounter(counter) {
