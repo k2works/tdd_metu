@@ -41,6 +41,8 @@ npx tsc --init --rootDir src --outDir lib --esModuleInterop --resolveJsonModule 
 npm install --save express
 npm install --save-dev @types/express
 npm install cypress
+npm install cypress-cucumber-preprocessor
+npm install --save-dev cypress-cucumber-preprocessor
 ```
 
 **[⬆ back to top](#構成)**
@@ -76,3 +78,4 @@ npm start
 - [webpack](https://webpack.js.org/)
 - [GitHub Actions でステータスバッジを表示する](https://qiita.com/SnowCait/items/487d70b342ffbe2f33d8)
 - [TypeScript Deep Dive 日本語版](https://typescript-jp.gitbook.io/deep-dive/) -[cypress](https://www.cypress.io/)
+- [cypress-cucumber-preprocessor](https://www.npmjs.com/package/cypress-cucumber-preprocessor)
