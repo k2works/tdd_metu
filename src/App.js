@@ -5,55 +5,44 @@ export class App {
   }
 
   render() {
+    const fetchList = () => {
+      const fizzBuzzList = (resolve, reject) => {
+        fetch(this._apiUrl)
+          .then((response) => response.json())
+          .then((data) => resolve(data))
+          .catch((error) => reject(error));
+      };
+      return new Promise(fizzBuzzList);
+    };
+
     this.renderCounter(1);
     this.renderSelect();
-    this.fetchList().then((list) => this.renderTable(list));
-  }
-
-  fetchList() {
-    const fizzBuzzList = (resolve, reject) => {
-      fetch(this._apiUrl)
-        .then((response) => response.json())
-        .then((data) => resolve(data))
-        .catch((error) => reject(error));
-    };
-    return new Promise(fizzBuzzList);
-  }
-
-  fetchCounter(counter) {
-    const apiUrl = `${this._apiUrl}/counter?number=${counter}`;
-    const fizzBuzzCounter = (resolve, reject) => {
-      fetch(apiUrl)
-        .then((response) => response.json())
-        .then((data) => resolve(data.value))
-        .catch((error) => reject(error));
-    };
-    return new Promise(fizzBuzzCounter);
-  }
-
-  fetchSelect(number) {
-    const apiUrl = `${this._apiUrl}/select?number=${number}`;
-    const fizzBuzzSelect = (resolve, reject) => {
-      fetch(apiUrl)
-        .then((response) => response.json())
-        .then((data) => resolve(data))
-        .catch((error) => reject(error));
-    };
-    return new Promise(fizzBuzzSelect);
+    fetchList().then((list) => this.renderTable(list));
   }
 
   renderCounter(initial) {
+    const fetchCounter = (counter) => {
+      const apiUrl = `${this._apiUrl}/counter?number=${counter}`;
+      const fizzBuzzCounter = (resolve, reject) => {
+        fetch(apiUrl)
+          .then((response) => response.json())
+          .then((data) => resolve(data.value))
+          .catch((error) => reject(error));
+      };
+      return new Promise(fizzBuzzCounter);
+    };
+
     let counter = initial;
     const incrementEvent = (e) => {
       counter = counter + 1;
-      this.fetchCounter(counter).then(
+      fetchCounter(counter).then(
         (data) => (document.getElementById("counter").value = data)
       );
     };
     const decrementEvent = (e) => {
       if (counter === 0) return;
       counter = counter - 1;
-      this.fetchCounter(counter).then(
+      fetchCounter(counter).then(
         (data) => (document.getElementById("counter").value = data)
       );
     };
@@ -73,9 +62,20 @@ export class App {
   }
 
   renderSelect() {
+    const fetchSelect = (number) => {
+      const apiUrl = `${this._apiUrl}/select?number=${number}`;
+      const fizzBuzzSelect = (resolve, reject) => {
+        fetch(apiUrl)
+          .then((response) => response.json())
+          .then((data) => resolve(data))
+          .catch((error) => reject(error));
+      };
+      return new Promise(fizzBuzzSelect);
+    };
+
     const changeEvent = (e) => {
       const number = e.target.value;
-      this.fetchSelect(number).then((data) => this.renderTable(data));
+      fetchSelect(number).then((data) => this.renderTable(data));
     };
 
     const contents = `
