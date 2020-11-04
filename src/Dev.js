@@ -54,7 +54,7 @@ const contents = `
 `;
 
 const uml = `
-package "api" {
+package "Api" {
   package "Application" {
     interface FizzBuzzCommand {
     }
@@ -86,6 +86,12 @@ package "api" {
     }
   }
 }
+package "View" {
+  class App {}
+  class Counter {}
+  class Select {}
+  class Table {}
+}
 package "test" {
   class FizzBuzzValueCommandTest {
   }
@@ -106,6 +112,10 @@ FizzBuzzCommand <|-- FizzBuzzListCommand
 FizzBuzzListCommand --> FizzBuzzList
 FizzBuzzType <- FizzBuzzTypeEnum
 FizzBuzzTypeEnum <- FizzBuzzCommand
+App --> Counter
+App --> Select
+App --> Table
+App -> FizzBuzzCommand
 `;
 
 const erd = `
