@@ -3,7 +3,7 @@ export const Counter = (apiUrl, initial) => {
   let counter = initial;
 
   const fetchCounter = (counter) => {
-    const apiUrl = `${baseApiUrl}/counter?number=${counter}`;
+    const apiUrl = `${baseApiUrl}/counter/${counter}`;
     const fizzBuzzCounter = (resolve, reject) => {
       fetch(apiUrl)
         .then((response) => response.json())

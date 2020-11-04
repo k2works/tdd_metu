@@ -1,8 +1,7 @@
 import { FizzBuzzList } from "../domain/model/fizzBuzzList";
 import { FizzBuzzValue } from "../domain/model/fizzBuzzValue";
 import { FizzBuzzType } from "../domain/type/fizzBuzzType";
-import { range } from "../utilities";
-import { FizzBuzzCommand } from "./fizzBuzzCommand";
+import { FizzBuzzCommand, range } from "./fizzBuzzCommand";
 
 export class FizzBuzzListCommand implements FizzBuzzCommand {
   private _type: FizzBuzzType;

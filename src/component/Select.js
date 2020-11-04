@@ -1,7 +1,7 @@
 export const Select = (apiUrl, renderTable) => {
   const baseApiUrl = apiUrl;
   const fetchSelect = (number) => {
-    const apiUrl = `${baseApiUrl}/select?number=${number}`;
+    const apiUrl = `${baseApiUrl}/select/${number}`;
     const fizzBuzzSelect = (resolve, reject) => {
       fetch(apiUrl)
         .then((response) => response.json())

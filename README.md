@@ -38,6 +38,8 @@ npm install webpack webpack-cli html-webpack-plugin --save-dev
 touch Procfile
 npm install --save-dev typescript jest ts-jest @types/jest
 npx tsc --init --rootDir src --outDir lib --esModuleInterop --resolveJsonModule --lib es6,dom --module commonjs
+npm install --save express
+npm install --save-dev @types/express
 ```
 
 **[⬆ back to top](#構成)**
