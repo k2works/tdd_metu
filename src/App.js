@@ -27,25 +27,28 @@ export class App {
 
   renderCounter(initial) {
     const component = counterComponent(this._apiUrl, initial);
-    document.getElementById("app-counter").innerHTML = component.contents;
+    document.getElementById("app-fizz-buzz-counter").innerHTML =
+      component.contents;
     document
-      .getElementById("increment")
+      .getElementById("app-fizz-buzz-counter-increment")
       .addEventListener("click", component.incrementEvent);
     document
-      .getElementById("decrement")
+      .getElementById("app-fizz-buzz-counter-decrement")
       .addEventListener("click", component.decrementEvent);
   }
 
   renderSelect() {
     const component = selectComponent(this._apiUrl, this.renderTable);
-    document.getElementById("app-select").innerHTML = component.contents;
+    document.getElementById("app-fizz-buzz-select").innerHTML =
+      component.contents;
     document
-      .getElementById("selectEvent")
+      .getElementById("app-fizz-buzz-select")
       .addEventListener("change", component.changeEvent);
   }
 
   renderTable(list) {
     const component = tableComponent(list);
-    document.getElementById("app-table").innerHTML = component.contents;
+    document.getElementById("app-fizz-buzz-table").innerHTML =
+      component.contents;
   }
 }

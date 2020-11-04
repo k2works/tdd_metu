@@ -15,18 +15,22 @@ export const Counter = (apiUrl, initial) => {
 
   const incrementEvent = async (e) => {
     counter = counter + 1;
-    document.getElementById("counter").value = await fetchCounter(counter);
+    document.getElementById(
+      "app-fizz-buzz-counter-counter"
+    ).value = await fetchCounter(counter);
   };
   const decrementEvent = async (e) => {
     if (counter === 0) return;
     counter = counter - 1;
-    document.getElementById("counter").value = await fetchCounter(counter);
+    document.getElementById(
+      "app-fizz-buzz-counter-counter"
+    ).value = await fetchCounter(counter);
   };
 
   const contents = `
-      <input id="counter" disabled="true" value=${counter}>
-      <button id="increment">+</button>
-      <button id="decrement">-</button>
+      <input id="app-fizz-buzz-counter-counter" disabled="true" value=${counter}>
+      <button id="app-fizz-buzz-counter-increment">+</button>
+      <button id="app-fizz-buzz-counter-decrement">-</button>
     `;
   return { contents, incrementEvent, decrementEvent };
 };

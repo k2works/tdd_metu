@@ -18,7 +18,7 @@ export const Select = (apiUrl, renderTable) => {
   };
 
   const contents = `
-    <select id="selectEvent">
+    <select id="app-fizz-buzz-table-select">
       <option value="1">タイプ1</option>
       <option value="2">タイプ2</option>
       <option value="3">タイプ3</option>
