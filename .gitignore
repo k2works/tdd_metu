@@ -105,3 +105,6 @@ dist
 
 public
 .vercel
+
+cypress/videos
+cypress/screenshots

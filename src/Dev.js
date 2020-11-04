@@ -1,68 +1,124 @@
+import marked from "marked";
+
 const contents = `
-## 機能名
+## FizzBuzz
 
 ## 仕様
 
+    1 から 100 までの数をプリントするプログラムを書け。
+    ただし 3 の倍数のときは数の代わりに｢Fizz｣と、5 の倍数のときは｢Buzz｣とプリントし、
+    3 と 5 両方の倍数の場合には｢FizzBuzz｣とプリントすること。
+    タイプごとに出力を切り替えることができる。
+    タイプ１は通常、タイプ２は数字のみ、タイプ３は FizzBuzz の場合のみをプリントする。
+
 ## TODOリスト
+- タイプ1の場合
+-- 数を文字列にして返す
+-- ~~1を渡したら文字列1を返す~~
+-- ~~2を渡したら文字列2を返す~~
+-- 3 の倍数のときは数の代わりに｢Fizz｣と返す
+-- ~~3を渡したときは文字列Fizzを返す~~
+-- 5 の倍数のときは｢Buzz｣と返す
+-- ~~5を渡したときは文字列Buzzを返す~~
+-- 3 と 5 両方の倍数の場合には｢FizzBuzz｣と返す
+-- ~~15を渡したら文字列FizzBuzzを返す~~
+-- 1 から 100 までの数の配列を返す
+-- ~~配列の初めは文字列の1を返す~~
+-- ~~配列の最後は文字列のBuzzを返す~~
+-- ~~配列の2番目は文字列のFizzを返す~~
+-- ~~配列の4番目は文字列のBuzzを返す~~
+-- ~~配列の14番目は文字列のFizzBuzzを返す~~
+- タイプ2の場合
+-- 数を文字列にして返す
+-- ~~1を渡したら文字列1を返す~~
+-- 3 の倍数のときは数を文字列にして返す
+-- ~~3を渡したときは文字列3を返す~~
+-- 5 の倍数のときは数を文字列にして返す
+-- ~~5を渡したときは文字列5を返す~~
+-- 3 と 5 両方の倍数の場合には数を文字列にして返す
+-- ~~15を渡したら文字列15を返す~~
+- タイプ3の場合
+-- 数を文字列にして返す
+-- ~~1を渡したら文字列1を返す~~
+-- 3 の倍数のときは数を文字列にして返す
+-- ~~3を渡したときは文字列3を返す~~
+-- 5 の倍数のときは数を文字列にして返す
+-- ~~5を渡したときは文字列5を返す~~
+-- 3 と 5 両方の倍数の場合には｢FizzBuzz｣と返す
+-- ~~15を渡したら文字列FizzBuzzを返す~~
+- それ以外のタイプの場合
+-- ~~例外を発生する~~
+- プリントする
+-- ~~表形式で表示する~~
+
 `;
 
 const uml = `
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
-
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-  Object[] elementData
-  size()
+package "Api" {
+  package "Application" {
+    interface FizzBuzzCommand {
+    }
+    class FizzBuzzValueCommand {
+    }
+    class FizzBuzzListCommand {
+    }
+  }
+  package "Domain" {
+    package "Model" {
+      class FizzBuzzValue {
+      }
+      class FizzBuzzList {
+      }
+    }
+    package "Type" {
+      class FizzBuzzType {
+      }
+      class FizzBuzzType01 {
+      }
+      class FizzBuzzType02 {
+      }
+      class FizzBuzzType03 {
+      }
+      class FizzBuzzTypeNotDefined {
+      }
+      enum FizzBuzzTypeEnum {
+      }
+    }
+  }
 }
-
-enum TimeUnit {
-  DAYS
-  HOURS
-  MINUTES
+package "View" {
+  class App {}
+  class Counter {}
+  class Select {}
+  class Table {}
 }
-
-annotation SuppressWarnings
+package "test" {
+  class FizzBuzzValueCommandTest {
+  }
+  class FizzBuzzListCommandTest {
+  }
+}
+FizzBuzzType <|-- FizzBuzzType01
+FizzBuzzType <|-- FizzBuzzType02
+FizzBuzzType <|-- FizzBuzzType03
+FizzBuzzType <|-- FizzBuzzTypeNotDefined
+FizzBuzzType01 --> FizzBuzzValue
+FizzBuzzType02 --> FizzBuzzValue
+FizzBuzzType03 --> FizzBuzzValue
+FizzBuzzTypeNotDefined --> FizzBuzzValue
+FizzBuzzList *- FizzBuzzValue
+FizzBuzzCommand <|-- FizzBuzzValueCommand
+FizzBuzzCommand <|-- FizzBuzzListCommand
+FizzBuzzListCommand --> FizzBuzzList
+FizzBuzzType <- FizzBuzzTypeEnum
+FizzBuzzTypeEnum <- FizzBuzzCommand
+App --> Counter
+App --> Select
+App --> Table
+App -> FizzBuzzCommand
 `;
 
 const erd = `
-' hide the spot
-hide circle
-
-' avoid problems with angled crows feet
-skinparam linetype ortho
-
-entity "Entity01" as e01 {
-  *e1_id : number <<generated>>
-  --
-  *name : text
-  description : text
-}
-
-entity "Entity02" as e02 {
-  *e2_id : number <<generated>>
-  --
-  *e1_id : number <<FK>>
-  other_details : text
-}
-
-entity "Entity03" as e03 {
-  *e3_id : number <<generated>>
-  --
-  e1_id : number <<FK>>
-  other_details : text
-}
-
-e01 ||..o{ e02
-e01 |o..o{ e03
 `;
 
 export const setUp = () => {
