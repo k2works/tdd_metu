@@ -28,6 +28,17 @@ export class App {
     return new Promise(fizzBuzzCounter);
   }
 
+  fetchSelect(number) {
+    const apiUrl = `${this._apiUrl}/select?number=${number}`;
+    const fizzBuzzSelect = (resolve, reject) => {
+      fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => resolve(data))
+        .catch((error) => reject(error));
+    };
+    return new Promise(fizzBuzzSelect);
+  }
+
   renderCounter(initial) {
     let counter = initial;
     const incrementEvent = (e) => {
@@ -61,8 +72,7 @@ export class App {
   renderSelect() {
     const changeEvent = (e) => {
       const number = e.target.value;
-      const apiUrl = `${this._apiUrl}/select?number=${number}`;
-      this.loading(apiUrl, this.renderTable);
+      this.fetchSelect(number).then((data) => this.renderTable(data));
     };
 
     const contents = `
