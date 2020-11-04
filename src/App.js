@@ -4,7 +4,7 @@ export class App {
     this.render();
   }
 
-  render() {
+  async render() {
     const fetchList = () => {
       const fizzBuzzList = (resolve, reject) => {
         fetch(this._apiUrl)
@@ -17,7 +17,8 @@ export class App {
 
     this.renderCounter(1);
     this.renderSelect();
-    fetchList().then((list) => this.renderTable(list));
+    const list = await fetchList();
+    this.renderTable(list);
   }
 
   renderCounter(initial) {
@@ -33,18 +34,14 @@ export class App {
     };
 
     let counter = initial;
-    const incrementEvent = (e) => {
+    const incrementEvent = async (e) => {
       counter = counter + 1;
-      fetchCounter(counter).then(
-        (data) => (document.getElementById("counter").value = data)
-      );
+      document.getElementById("counter").value = await fetchCounter(counter);
     };
-    const decrementEvent = (e) => {
+    const decrementEvent = async (e) => {
       if (counter === 0) return;
       counter = counter - 1;
-      fetchCounter(counter).then(
-        (data) => (document.getElementById("counter").value = data)
-      );
+      document.getElementById("counter").value = await fetchCounter(counter);
     };
 
     const contents = `
@@ -73,9 +70,10 @@ export class App {
       return new Promise(fizzBuzzSelect);
     };
 
-    const changeEvent = (e) => {
+    const changeEvent = async (e) => {
       const number = e.target.value;
-      fetchSelect(number).then((data) => this.renderTable(data));
+      const list = await fetchSelect(number);
+      this.renderTable(list);
     };
 
     const contents = `
