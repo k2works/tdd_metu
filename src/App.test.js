@@ -1,3 +1,4 @@
+import { util } from "chai";
 import { FizzBuzz } from "./App.js";
 
 describe("FizzBuzz", () => {
@@ -26,5 +27,17 @@ describe("FizzBuzz", () => {
 
   it("15 ならばFizzBuzzを返す", () => {
     expect(fizzBuzz.generate(15)).toEqual("FizzBuzz");
+  });
+
+  it("配列の先頭は1を返す", () => {
+    const result = fizzBuzz.print1To100();
+
+    expect(result[0]).toEqual("1");
+  });
+
+  it("配列の最後は100を返す", () => {
+    const result = fizzBuzz.print1To100();
+
+    expect(result[result.length - 1]).toEqual("100");
   });
 });

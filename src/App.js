@@ -16,4 +16,12 @@ export class FizzBuzz {
     }
     return result;
   }
+
+  static print1To100() {
+    let result = [];
+    for (let i = 1; i <= 100; i++) {
+      result.push(i.toString());
+    }
+    return result;
+  }
 }
