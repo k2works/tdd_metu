@@ -1,6 +1,7 @@
 export class App {
   constructor() {
-    document.getElementById("app").innerHTML = Fibonacci.recursive(40);
+    const fib = new Fibonacci(new FibonacciRecursive());
+    document.getElementById("app").innerHTML = fib.exec(40);
   }
 }
 
