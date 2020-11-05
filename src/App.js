@@ -6,6 +6,6 @@ export class App {
 
 export class FizzBuzz {
   static generate(number) {
-    return "1";
+    return number.toString();
   }
 }
