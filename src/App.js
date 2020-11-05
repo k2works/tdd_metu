@@ -6,6 +6,10 @@ export class App {
 
 export class FizzBuzz {
   static generate(number) {
-    return number.toString();
+    let result = number.toString();
+    if (number % 3 === 0) {
+      result = "Fizz";
+    }
+    return result;
   }
 }
