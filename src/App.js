@@ -1,6 +1,6 @@
 export class App {
   constructor() {
-    document.getElementById("app").innerHTML = FizzBuzz.greeting();
+    document.getElementById("app").innerHTML = FizzBuzz.generate(1);
   }
 }
 
