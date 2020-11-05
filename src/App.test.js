@@ -15,4 +15,8 @@ describe("FizzBuzz", () => {
   it("6ならば文字列Fizzを返す", () => {
     expect(FizzBuzz.generate(6)).toEqual("Fizz");
   });
+
+  it("5 ならばBuzzを返す", () => {
+    expect(FizzBuzz.generate(5)).toEqual("Buzz");
+  });
 });
