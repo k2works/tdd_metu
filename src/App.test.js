@@ -35,10 +35,10 @@ describe("FizzBuzz", () => {
     expect(result[0]).toEqual("1");
   });
 
-  it("配列の最後は100を返す", () => {
+  it("配列の最後はBuzzを返す", () => {
     const result = fizzBuzz.print1To100();
 
-    expect(result[result.length - 1]).toEqual("100");
+    expect(result[result.length - 1]).toEqual("Buzz");
   });
 
   it("配列の2番目はFizzを返す", () => {
