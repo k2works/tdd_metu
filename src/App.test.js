@@ -19,4 +19,8 @@ describe("FizzBuzz", () => {
   it("5 ならばBuzzを返す", () => {
     expect(FizzBuzz.generate(5)).toEqual("Buzz");
   });
+
+  it("15 ならばFizzBuzzを返す", () => {
+    expect(FizzBuzz.generate(15)).toEqual("FizzBuzz");
+  });
 });
