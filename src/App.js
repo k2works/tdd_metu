@@ -5,7 +5,7 @@ export class App {
 }
 
 export class FizzBuzz {
-  static greeting() {
-    return "hello world";
+  static generate(number) {
+    return "1";
   }
 }

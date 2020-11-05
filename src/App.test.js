@@ -1,7 +1,7 @@
-import { sum, FizzBuzz } from "./App.js";
+import { FizzBuzz } from "./App.js";
 
 describe("FizzBuzz", () => {
-  it("挨拶する", () => {
-    expect(FizzBuzz.greeting()).toEqual("hello world");
+  it("1ならば文字列1を返す", () => {
+    expect(FizzBuzz.generate(1)).toEqual("1");
   });
 });
