@@ -6,7 +6,7 @@ export class App {
 }
 
 export class Fibonacci {
-  static greeting() {
-    return "hello world";
+  static fib(n) {
+    return 0;
   }
 }
