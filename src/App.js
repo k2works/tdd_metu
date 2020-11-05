@@ -1,10 +1,11 @@
-console.log("App.js: loaded");
 export class App {
   constructor() {
-    console.log("App initialized");
+    document.getElementById("app").innerHTML = FizzBuzz.greeting();
   }
 }
 
-export function sum(a, b) {
-  return a + b;
+export class FizzBuzz {
+  static greeting() {
+    return "hello world";
+  }
 }
