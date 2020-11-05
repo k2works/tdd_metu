@@ -1,26 +1,30 @@
 import { FizzBuzz } from "./App.js";
 
 describe("FizzBuzz", () => {
+  let fizzBuzz;
+  beforeEach(() => {
+    fizzBuzz = FizzBuzz;
+  });
   it("1ならば文字列1を返す", () => {
-    expect(FizzBuzz.generate(1)).toEqual("1");
+    expect(fizzBuzz.generate(1)).toEqual("1");
   });
   it("2ならば文字列2を返す", () => {
-    expect(FizzBuzz.generate(2)).toEqual("2");
+    expect(fizzBuzz.generate(2)).toEqual("2");
   });
 
   it("3ならば文字列Fizzを返す", () => {
-    expect(FizzBuzz.generate(3)).toEqual("Fizz");
+    expect(fizzBuzz.generate(3)).toEqual("Fizz");
   });
 
   it("6ならば文字列Fizzを返す", () => {
-    expect(FizzBuzz.generate(6)).toEqual("Fizz");
+    expect(fizzBuzz.generate(6)).toEqual("Fizz");
   });
 
   it("5 ならばBuzzを返す", () => {
-    expect(FizzBuzz.generate(5)).toEqual("Buzz");
+    expect(fizzBuzz.generate(5)).toEqual("Buzz");
   });
 
   it("15 ならばFizzBuzzを返す", () => {
-    expect(FizzBuzz.generate(15)).toEqual("FizzBuzz");
+    expect(fizzBuzz.generate(15)).toEqual("FizzBuzz");
   });
 });
