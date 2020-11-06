@@ -38,6 +38,7 @@ npm install webpack webpack-cli html-webpack-plugin --save-dev
 touch Procfile
 npm install cypress
 npm install --save-dev cypress-cucumber-preprocessor
+npm install --save express uuid
 ```
 
 **[⬆ back to top](#構成)**
@@ -75,3 +76,4 @@ npm start
 - [cypress](https://www.cypress.io/)
 - [cypress-cucumber-preprocessor](https://www.npmjs.com/package/cypress-cucumber-preprocessor)
 - [１００番目までのフィボナッチ数列](http://www.suguru.jp/Fibonacci/Fib100.html)
+- [Using Express.js with Vercel](https://vercel.com/guides/using-express-with-vercel)
