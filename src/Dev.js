@@ -42,6 +42,7 @@ const contents = `
 `;
 
 const uml = `
+App *- FibonacciList
 FibonacciList *- Fibonacci
 Fibonacci -> Protocol
 Protocol <|-- FibonacciRecursive
@@ -63,6 +64,11 @@ class FibonacciGeneralTerm {
 class FibonacciList {
   command
   exec(count)
+}
+class App {
+  command
+  list
+  render()
 }
 `;
 
