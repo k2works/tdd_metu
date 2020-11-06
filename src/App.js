@@ -2,6 +2,9 @@ import { expect } from "chai";
 
 export class App {
   constructor() {
+    this._command = new FibonacciList(new Fibonacci(new FibonacciRecursive()));
+    const list = this._command.exec(100);
+
     const select = () => {
       return `
         <select>
@@ -12,10 +15,7 @@ export class App {
       `;
     };
 
-    const table = () => {
-      const command = new Fibonacci(new FibonacciRecursive());
-      const listCommand = new FibonacciList(command);
-      const list = listCommand.exec(100);
+    const table = (list) => {
       const header = [...Array(10).keys()]
         .map((i) => `<td>${i + 1}</td>`)
         .join("");
@@ -47,10 +47,11 @@ export class App {
         </table>
       `;
     };
+
     const contents = `
       <div>
       ${select()}
-      ${table()}
+      ${table(list)}
       </div>
     `;
     document.getElementById("app").innerHTML = contents;
