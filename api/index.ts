@@ -1,11 +1,11 @@
 import express from "express";
-import { Fibonacci } from "./domain/fibonacci";
+import { Command, FibonacciList, FibonacciRecursive } from "./domain/fibonacci";
 const app = express();
 
 app.get("/api", (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
-  const fib = new Fibonacci();
-  res.send(fib.greeting());
+  const command: Command = new FibonacciList(new FibonacciRecursive());
+  res.send(command.exec(100));
 });
 
 module.exports = app;
