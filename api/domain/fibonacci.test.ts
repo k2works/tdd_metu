@@ -48,4 +48,14 @@ describe("フィボナッチ数列", () => {
     expect(result[result.length - 2]).toEqual(63245986);
     expect(result[result.length - 1]).toEqual(102334155);
   });
+
+  test("100以上は計算できない", () => {
+    expect(() => recursive.exec(101)).toThrow("");
+  });
+
+  test("リストは100項まで", () => {
+    const command = new Fibonacci(FibonacciTypeEnum.valueOf(1));
+    const listCommand = new FibonacciList(command);
+    expect(() => listCommand.exec(101)).toThrow("");
+  });
 });
