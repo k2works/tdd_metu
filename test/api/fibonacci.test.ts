@@ -1,12 +1,7 @@
-import {
-  Command,
-  Fibonacci,
-  FibonacciGeneralTerm,
-  FibonacciList,
-  FibonacciLoop,
-  FibonacciRecursive,
-  FibonacciTypeEnum,
-} from "./fibonacci";
+import { Command } from "../../api/application/command";
+import { Fibonacci } from "../../api/application/fibonacci";
+import { FibonacciList } from "../../api/application/fibonacciList";
+import { FibonacciTypeEnum } from "../../api/domain/type/fibonacciTypeEnum";
 
 describe("フィボナッチ数列", () => {
   let recursive: Command;
