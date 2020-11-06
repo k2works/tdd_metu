@@ -3,6 +3,7 @@ import {
   FibonacciRecursive,
   FibonacciLoop,
   FibonacciGeneralTerm,
+  FibonacciList,
 } from "./App.js";
 
 describe("フィボナッチ数列", () => {
@@ -37,5 +38,14 @@ describe("フィボナッチ数列", () => {
 
   test("大きな数値を計算する(一般項による実装)", () => {
     expect(generalTerm.exec(40)).toEqual(102334155);
+  });
+
+  test("10までのフィボナッチ配列を返す", () => {
+    const command = new Fibonacci(new FibonacciRecursive());
+    const listCommand = new FibonacciList(command);
+    const result = listCommand.exec(40);
+
+    expect(result[0]).toEqual(0);
+    expect(result[result.length - 1]).toEqual(102334155);
   });
 });

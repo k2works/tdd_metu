@@ -1,3 +1,5 @@
+import { expect } from "chai";
+
 export class App {
   constructor() {
     const select = () => {
@@ -51,6 +53,16 @@ export class App {
       </div>
     `;
     document.getElementById("app").innerHTML = contents;
+  }
+}
+
+export class FibonacciList {
+  constructor(command) {
+    this._command = command;
+  }
+
+  exec(count) {
+    return [...Array(count + 1).keys()].map((i) => this._command.exec(i));
   }
 }
 
