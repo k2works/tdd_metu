@@ -39,6 +39,8 @@ touch Procfile
 npm install cypress
 npm install --save-dev cypress-cucumber-preprocessor
 npm install --save express uuid
+npm install --save-dev typescript jest ts-jest @types/jest @types/express
+npx tsc --init --rootDir src --outDir lib --esModuleInterop --resolveJsonModule --lib es6,dom --module commonjs
 ```
 
 **[⬆ back to top](#構成)**
@@ -77,3 +79,4 @@ npm start
 - [cypress-cucumber-preprocessor](https://www.npmjs.com/package/cypress-cucumber-preprocessor)
 - [１００番目までのフィボナッチ数列](http://www.suguru.jp/Fibonacci/Fib100.html)
 - [Using Express.js with Vercel](https://vercel.com/guides/using-express-with-vercel)
+- [TypeScript Deep Dive 日本語版](https://typescript-jp.gitbook.io/deep-dive/)
