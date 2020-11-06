@@ -1,4 +1,9 @@
-import { Fibonacci, FibonacciLoop, FibonacciRecursive } from "./fibonacci";
+import {
+  Fibonacci,
+  FibonacciGeneralTerm,
+  FibonacciLoop,
+  FibonacciRecursive,
+} from "./fibonacci";
 
 describe("フィボナッチ数列", () => {
   let fib: Fibonacci;
@@ -25,6 +30,7 @@ describe("フィボナッチ数列", () => {
     expect(command.exec(40)).toEqual(102334155);
   });
   test("大きな数値で計算する(一般項による実装)", () => {
-    expect(fib.generalTerm(40)).toEqual(102334155);
+    const command = new FibonacciGeneralTerm();
+    expect(command.exec(40)).toEqual(102334155);
   });
 });
