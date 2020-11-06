@@ -1,7 +1,6 @@
 export class App {
   constructor() {
     this._command = new FibonacciList(new Fibonacci(new FibonacciRecursive()));
-    this._list = this._command.exec(100);
     this.render();
   }
 
@@ -11,7 +10,8 @@ export class App {
     };
 
     const select = this.selectComponent(renderTable);
-    const table = this.tableComponent(this._list);
+    const list = this._command.exec(100);
+    const table = this.tableComponent(list);
     const contents = `
       <div>
         <div id="app-select">
@@ -31,7 +31,6 @@ export class App {
 
   selectComponent(render) {
     let list;
-    let command;
     const changeEvent = (e) => {
       const value = e.target.value;
       switch (value) {
@@ -39,20 +38,20 @@ export class App {
           this._command = new FibonacciList(
             new Fibonacci(new FibonacciRecursive())
           );
-          this._list = this._command.exec(100);
-          render(this.tableComponent(this._list).contents);
+          list = this._command.exec(100);
+          render(this.tableComponent(list).contents);
           break;
         case "2":
           this._command = new FibonacciList(new Fibonacci(new FibonacciLoop()));
-          this._list = this._command.exec(100);
-          render(this.tableComponent(this._list).contents);
+          list = this._command.exec(100);
+          render(this.tableComponent(list).contents);
           break;
         case "3":
           this._command = new FibonacciList(
             new Fibonacci(new FibonacciGeneralTerm())
           );
-          this._list = this._command.exec(100);
-          render(this.tableComponent(this._list).contents);
+          list = this._command.exec(100);
+          render(this.tableComponent(list).contents);
           break;
         default:
           throw "該当するアルゴリズムが存在しません";
