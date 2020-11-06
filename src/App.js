@@ -13,35 +13,36 @@ export class App {
     };
 
     const table = () => {
+      const command = new Fibonacci(new FibonacciRecursive());
+      const listCommand = new FibonacciList(command);
+      const list = listCommand.exec(100);
+      const header = [...Array(10).keys()]
+        .map((i) => `<td>${i + 1}</td>`)
+        .join("");
+      const body = [...Array(10).keys()]
+        .map((i) => (i === 0 ? 0 : i * 10))
+        .map((j) =>
+          [...Array(10).keys()].map((k) => `<td>${list[k + j]}`).join("")
+        );
       return `
         <table>
+          <thead bgcolor="darkgray">
+           <tr>
+            ${header}
+           </tr>
+          </thead>
           <thead></thead>
-          <thead></thead>
-          <tbody bgcolor="darkgray">
-            <tr>
-              <td>0</td>
-              <td>1</td>
-              <td>1</td>
-              <td>2</td>
-              <td>3</td>
-              <td>5</td>
-              <td>8</td>
-              <td>13</td>
-              <td>21</td>
-              <td>34</td>
-            </tr>
-            <tr>
-              <td>55</td>
-              <td>89</td>
-              <td>144</td>
-              <td>233</td>
-              <td>377</td>
-              <td>610</td>
-              <td>987</td>
-              <td>1597</td>
-              <td>2584</td>
-              <td>...</td>
-            </tr>
+          <tbody bgcolor="ivory">
+            <tr>${body[0]}</t>
+            <tr>${body[1]}</t>
+            <tr>${body[2]}</t>
+            <tr>${body[3]}</t>
+            <tr>${body[4]}</t>
+            <tr>${body[5]}</t>
+            <tr>${body[6]}</t>
+            <tr>${body[7]}</t>
+            <tr>${body[8]}</t>
+            <tr>${body[9]}</t>
           </tbody>
         </table>
       `;
