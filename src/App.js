@@ -13,9 +13,9 @@ export class App {
       document.getElementById("app-table").innerHTML = contents;
     };
 
-    const select = this.selectComponent(renderTable);
+    const select = this.createSelectComponent(renderTable);
     const list = this._command.exec(this.MAX_COUNT);
-    const table = this.tableComponent(list);
+    const table = this.createTableComponent(list);
     const contents = `
       <div>
         <div id="app-select">
@@ -33,7 +33,7 @@ export class App {
       .addEventListener("change", select.changeEvent);
   }
 
-  selectComponent(render) {
+  createSelectComponent(render) {
     let list;
     const changeEvent = (e) => {
       const value = e.target.value;
@@ -43,19 +43,19 @@ export class App {
             new Fibonacci(new FibonacciRecursive())
           );
           list = this._command.exec(this.MAX_COUNT);
-          render(this.tableComponent(list).contents);
+          render(this.createTableComponent(list).contents);
           break;
         case "2":
           this._command = new FibonacciList(new Fibonacci(new FibonacciLoop()));
           list = this._command.exec(this.MAX_COUNT);
-          render(this.tableComponent(list).contents);
+          render(this.createTableComponent(list).contents);
           break;
         case "3":
           this._command = new FibonacciList(
             new Fibonacci(new FibonacciGeneralTerm())
           );
           list = this._command.exec(this.MAX_COUNT);
-          render(this.tableComponent(list).contents);
+          render(this.createTableComponent(list).contents);
           break;
         default:
           throw "該当するアルゴリズムが存在しません";
@@ -73,7 +73,7 @@ export class App {
     return { contents, changeEvent };
   }
 
-  tableComponent(list) {
+  createTableComponent(list) {
     const header = [...Array(10).keys()]
       .map((i) => `<td>${i + 1}</td>`)
       .join("");
