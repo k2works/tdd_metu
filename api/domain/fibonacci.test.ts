@@ -13,4 +13,8 @@ describe("フィボナッチ数列", () => {
     const fib = new Fibonacci();
     expect(fib.calc(2)).toEqual(1);
   });
+  test("3を渡したら2を返す", () => {
+    const fib = new Fibonacci();
+    expect(fib.calc(3)).toEqual(2);
+  });
 });
