@@ -108,3 +108,6 @@ public
 
 cypress/screenshots
 cypress/videos
+
+api/.bundle
+api/vendor
