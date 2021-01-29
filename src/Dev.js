@@ -38,6 +38,9 @@ const contents = `
 `;
 
 const uml = `
+class Fibonacci {
+  {static} calc(number, memo)
+}
 `;
 
 const erd = `
