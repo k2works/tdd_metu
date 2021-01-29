@@ -39,7 +39,9 @@ const contents = `
 
 const uml = `
 class Fibonacci {
-  {static} calc(number, memo)
+  {static} recursive(number, memo)
+  {static} loop(number)
+  {static} general_term(number)
 }
 `;
 
