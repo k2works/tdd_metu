@@ -12,8 +12,12 @@ class FibonacciTest < Minitest::Test
     end
   end
 
-  def test_大きな数字
+  def test_大きな数字_再起処理による実装
     assert_equal 102_334_155, @fib.calc(40)
+  end
+
+  def test_大きな数字_ループ処理による実装
+    assert_equal 102_334_155, @fib.calc2(40)
   end
 end
 
@@ -23,5 +27,17 @@ class Fibonacci
     return 1 if number == 1
 
     memo[number] ||= calc(number - 1, memo) + calc(number - 2, memo)
+  end
+
+  def self.calc2(number)
+    a = 0
+    b = 1
+    c = 0
+    (0...number).each do |i|
+      a = b
+      b = c
+      c = a + b
+    end
+    c
   end
 end
