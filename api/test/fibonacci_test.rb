@@ -1,11 +1,11 @@
 require 'minitest/autorun'
-require_relative './app'
+require_relative '../app'
 
 class FibonacciTest < Minitest::Test
   def setup
-    @recursive = Fibonacci.new(FibonacciRecursive.new)
-    @loop = Fibonacci.new(FibonacciLoop.new)
-    @general_term = Fibonacci.new(FibonacciGeneralTerm.new)
+    @recursive = Fibonacci::Command.new(Fibonacci::Recursive.new)
+    @loop = Fibonacci::Command.new(Fibonacci::Loop.new)
+    @general_term = Fibonacci::Command.new(Fibonacci::GeneralTerm.new)
   end
 
   def test_fibonacci
