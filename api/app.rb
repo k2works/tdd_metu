@@ -2,10 +2,9 @@ require 'minitest/autorun'
 
 class FibonacciTest < Minitest::Test
   def setup
-    @fib = Fibonacci
-    @recursive = FibonacciRecursive.new
-    @loop = FibonacciLoop.new
-    @general_term = FibonacciGeneralTerm.new
+    @recursive = Fibonacci.new(FibonacciRecursive.new)
+    @loop = Fibonacci.new(FibonacciLoop.new)
+    @general_term = Fibonacci.new(FibonacciGeneralTerm.new)
   end
 
   def test_fibonacci
@@ -29,29 +28,12 @@ class FibonacciTest < Minitest::Test
 end
 
 class Fibonacci
-  def self.recursive(number, memo = {})
-    return 0 if number.zero?
-    return 1 if number == 1
-
-    memo[number] ||= recursive(number - 1, memo) + recursive(number - 2, memo)
+  def initialize(algorithm)
+    @algorithm = algorithm
   end
 
-  def self.loop(number)
-    a = 0
-    b = 1
-    c = 0
-    (0...number).each do |i|
-      a = b
-      b = c
-      c = a + b
-    end
-    c
-  end
-
-  def self.geneeral_term(number)
-    a = ((1 + Math.sqrt(5)) / 2)**number
-    b = ((1 - Math.sqrt(5)) / 2)**number
-    ((a - b) / Math.sqrt(5)).round
+  def exec(number)
+    @algorithm.exec(number)
   end
 end
 
