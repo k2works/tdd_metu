@@ -38,10 +38,22 @@ const contents = `
 `;
 
 const uml = `
+Fibonacci -> Protocol
+Protocol <|-- FibonacciRecursive
+Protocol <|-- FibonacciLoop
+Protocol <|-- FibonacciGeneralTerm
 class Fibonacci {
-  {static} recursive(number, memo)
-  {static} loop(number)
-  {static} general_term(number)
+  algorith
+  exec(number)
+}
+class FibonacciRecursive {
+  exec(number)
+}
+class FibonacciLoop {
+  exec(number)
+}
+class FibonacciGeneralTerm {
+  exec(number)
 }
 `;
 
