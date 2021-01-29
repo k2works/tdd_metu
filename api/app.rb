@@ -19,6 +19,10 @@ class FibonacciTest < Minitest::Test
   def test_大きな数字_ループ処理による実装
     assert_equal 102_334_155, @fib.calc2(40)
   end
+
+  def test_大きな数字_一般項による実装
+    assert_equal 102_334_155, @fib.calc3(40)
+  end
 end
 
 class Fibonacci
@@ -39,5 +43,11 @@ class Fibonacci
       c = a + b
     end
     c
+  end
+
+  def self.calc3(number)
+    a = ((1 + Math.sqrt(5)) / 2)**number
+    b = ((1 - Math.sqrt(5)) / 2)**number
+    ((a - b) / Math.sqrt(5)).round
   end
 end
