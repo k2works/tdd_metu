@@ -4,6 +4,7 @@ class FibonacciTest < Minitest::Test
   def setup
     @fib = Fibonacci
     @recursive = FibonacciRecursive.new
+    @loop = FibonacciLoop.new
   end
 
   def test_fibonacci
@@ -18,7 +19,7 @@ class FibonacciTest < Minitest::Test
   end
 
   def test_大きな数字_ループ処理による実装
-    assert_equal 102_334_155, @fib.loop(40)
+    assert_equal 102_334_155, @loop.exec(40)
   end
 
   def test_大きな数字_一般項による実装
@@ -60,4 +61,18 @@ class FibonacciRecursive
 
     memo[number] ||= exec(number - 1, memo) + exec(number - 2, memo)
  end
+end
+
+class FibonacciLoop
+  def exec(number)
+    a = 0
+    b = 1
+    c = 0
+    (0...number).each do |i|
+      a = b
+      b = c
+      c = a + b
+    end
+    c
+  end
 end
