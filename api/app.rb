@@ -5,28 +5,11 @@ class FibonacciTest < Minitest::Test
     @fib = Fibonacci
   end
 
-  def test_0を渡したら0を返す
-    assert_equal 0, @fib.calc(0)
-  end
-
-  def test_1を渡したら1を返す
-    assert_equal 1, @fib.calc(1)
-  end
-
-  def test_2を渡したら1を返す
-    assert_equal 1, @fib.calc(2)
-  end
-
-  def test_3を渡したら2を返す
-    assert_equal 2, @fib.calc(3)
-  end
-
-  def test_4を渡したら3を返す
-    assert_equal 3, @fib.calc(4)
-  end
-
-  def test_5を渡したら5を返す
-    assert_equal 5, @fib.calc(5)
+  def test_fibonacci
+    cases = [[0, 0], [1, 1], [2, 1], [3, 2], [4, 3], [5, 5]]
+    cases.each do |i|
+      assert_equal i[1], @fib.calc(i[0])
+    end
   end
 end
 
