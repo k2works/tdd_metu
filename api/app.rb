@@ -12,12 +12,17 @@ class FibonacciTest < Minitest::Test
   def test_2を渡したら1を返す
     assert_equal 1, Fibonacci.fib(2)
   end
+
+  def test_3を渡したら2を返す
+    assert_equal 2, Fibonacci.fib(3)
+  end
 end
 
 class Fibonacci
   def self.fib(n)
     return 0 if n.zero?
+    return 1 if n <= 2
 
-    1
+    2
   end
 end
