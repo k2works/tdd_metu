@@ -8,6 +8,10 @@ class FibonacciTest < Minitest::Test
   def test_1を渡したら1を返す
     assert_equal 1, Fibonacci.fib(1)
   end
+
+  def test_2を渡したら1を返す
+    assert_equal 1, Fibonacci.fib(2)
+  end
 end
 
 class Fibonacci
